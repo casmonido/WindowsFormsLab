@@ -33,5 +33,10 @@ namespace WindowsFormsApp
         {
             LayoutMdi(MdiLayout.Cascade);
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -58,7 +58,7 @@
             // otwórzListęToolStripMenuItem
             // 
             this.otwórzListęToolStripMenuItem.Name = "otwórzListęToolStripMenuItem";
-            this.otwórzListęToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.otwórzListęToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.otwórzListęToolStripMenuItem.Text = "Otwórz listę";
             this.otwórzListęToolStripMenuItem.Click += new System.EventHandler(this.otwórzListęToolStripMenuItem_Click);
             // 
@@ -72,6 +72,7 @@
             this.MainMenuStrip = this.mainMenuStrip;
             this.Name = "MainForm";
             this.Text = "Main Form";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
             this.ResumeLayout(false);
