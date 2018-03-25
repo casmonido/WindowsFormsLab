@@ -86,6 +86,8 @@
             this.kolorComboBox.Name = "kolorComboBox";
             this.kolorComboBox.Size = new System.Drawing.Size(121, 21);
             this.kolorComboBox.TabIndex = 0;
+            this.kolorComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.kolorComboBox_Validating);
+            this.kolorComboBox.Validated += new System.EventHandler(this.kolorComboBox_Validated);
             // 
             // typComboBox
             // 
@@ -97,6 +99,8 @@
             this.typComboBox.Name = "typComboBox";
             this.typComboBox.Size = new System.Drawing.Size(121, 21);
             this.typComboBox.TabIndex = 1;
+            this.typComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.typComboBox_Validating);
+            this.typComboBox.Validated += new System.EventHandler(this.typComboBox_Validated);
             // 
             // wspolrzedneTextBox
             // 
