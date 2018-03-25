@@ -29,6 +29,9 @@ namespace WindowsFormsApp
             {
                 ListViewItem lvi = new ListViewItem(d.Kolor);
                 lvi.SubItems.Add(d.Typ);
+                lvi.SubItems.Add(d.Wspolrzedne);
+                lvi.SubItems.Add(d.Pole);
+                lvi.SubItems.Add(d.Etykieta);
                 shapeList.Items.Add(lvi);
             }
         }

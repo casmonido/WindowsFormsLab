@@ -69,11 +69,12 @@
             // Typ
             // 
             this.Typ.Text = "Typ";
-            this.Typ.Width = 307;
+            this.Typ.Width = 133;
             // 
             // Wspolrzedne
             // 
             this.Wspolrzedne.Text = "Współrzędne środka";
+            this.Wspolrzedne.Width = 152;
             // 
             // Pole
             // 
@@ -107,21 +108,21 @@
             // dodajToolStripMenuItem
             // 
             this.dodajToolStripMenuItem.Name = "dodajToolStripMenuItem";
-            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.dodajToolStripMenuItem.Text = "Dodaj";
             this.dodajToolStripMenuItem.Click += new System.EventHandler(this.dodajToolStripMenuItem_Click);
             // 
             // modyfikujToolStripMenuItem
             // 
             this.modyfikujToolStripMenuItem.Name = "modyfikujToolStripMenuItem";
-            this.modyfikujToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modyfikujToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.modyfikujToolStripMenuItem.Text = "Modyfikuj";
             this.modyfikujToolStripMenuItem.Click += new System.EventHandler(this.modyfikujToolStripMenuItem_Click);
             // 
             // usuńToolStripMenuItem
             // 
             this.usuńToolStripMenuItem.Name = "usuńToolStripMenuItem";
-            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.usuńToolStripMenuItem.Text = "Usuń";
             this.usuńToolStripMenuItem.Click += new System.EventHandler(this.usuńToolStripMenuItem_Click);
             // 

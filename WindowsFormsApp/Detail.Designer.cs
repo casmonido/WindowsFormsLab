@@ -109,6 +109,8 @@
             this.wspolrzedneTextBox.Size = new System.Drawing.Size(121, 20);
             this.wspolrzedneTextBox.TabIndex = 2;
             this.wspolrzedneTextBox.TextChanged += new System.EventHandler(this.wspolrzedneTextBox_TextChanged);
+            this.wspolrzedneTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.wspolrzedneTextBox_Validating);
+            this.wspolrzedneTextBox.Validated += new System.EventHandler(this.wspolrzedneTextBox_Validated);
             // 
             // poleTextBox
             // 
@@ -116,6 +118,8 @@
             this.poleTextBox.Name = "poleTextBox";
             this.poleTextBox.Size = new System.Drawing.Size(121, 20);
             this.poleTextBox.TabIndex = 3;
+            this.poleTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.poleTextBox_Validating);
+            this.poleTextBox.Validated += new System.EventHandler(this.poleTextBox_Validated);
             // 
             // etykietaTextBox
             // 
@@ -181,6 +185,7 @@
             // 
             // cancelButton
             // 
+            this.cancelButton.CausesValidation = false;
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Location = new System.Drawing.Point(319, 161);
             this.cancelButton.Name = "cancelButton";

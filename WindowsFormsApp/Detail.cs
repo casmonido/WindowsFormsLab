@@ -29,6 +29,11 @@ namespace WindowsFormsApp
         {
             this.listViewItem = listViewItem;
             InitializeComponent();
+            kolorComboBox.Text = listViewItem.SubItems[0].Text;
+            typComboBox.Text = listViewItem.SubItems[1].Text;
+            wspolrzedneTextBox.Text = listViewItem.SubItems[2].Text;
+            poleTextBox.Text = listViewItem.SubItems[3].Text;
+            etykietaTextBox.Text = listViewItem.SubItems[4].Text;
         }
 
         private void Detail_Load(object sender, EventArgs e)
@@ -43,6 +48,9 @@ namespace WindowsFormsApp
                 DialogResult = DialogResult.OK;
                 this.Kolor = this.kolorComboBox.SelectedItem.ToString();
                 this.Typ = this.typComboBox.SelectedItem.ToString();
+                this.Wspolrzedne = this.wspolrzedneTextBox.Text;
+                this.Pole = this.poleTextBox.Text;
+                this.Etykieta = this.etykietaTextBox.Text;
             }
         }
 
@@ -76,10 +84,33 @@ namespace WindowsFormsApp
             e.Cancel = true;
             detailErrorProvider.SetError(typComboBox, "Wybierz typ.");
         }
-
         private void typComboBox_Validated(object sender, EventArgs e)
         {
             detailErrorProvider.SetError(typComboBox, "");
+        }
+
+        private void wspolrzedneTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (wspolrzedneTextBox.Text != null)
+                return;
+            e.Cancel = true;
+            detailErrorProvider.SetError(wspolrzedneTextBox, "Uzupełnij położenie współrzędnych.");
+        }
+        private void wspolrzedneTextBox_Validated(object sender, EventArgs e)
+        {
+            detailErrorProvider.SetError(wspolrzedneTextBox, "");
+        }
+
+        private void poleTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (poleTextBox.Text != null)
+                return;
+            e.Cancel = true;
+            detailErrorProvider.SetError(poleTextBox, "Uzupełnij pole.");
+        }
+        private void poleTextBox_Validated(object sender, EventArgs e)
+        {
+            detailErrorProvider.SetError(poleTextBox, "");
         }
     }
 }

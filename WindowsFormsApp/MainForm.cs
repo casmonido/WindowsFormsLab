@@ -12,6 +12,8 @@ namespace WindowsFormsApp
 {
     public partial class MainForm : Form
     {
+        private List<Figura> listaFigur = new List<Figura>();
+
         public MainForm()
         {
             InitializeComponent();
