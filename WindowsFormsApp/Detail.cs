@@ -38,7 +38,12 @@ namespace WindowsFormsApp
 
         private void okButton_Click(object sender, EventArgs e)
         {
-
+            if (ValidateChildren())
+            {
+                DialogResult = DialogResult.OK;
+                this.Kolor = this.kolorComboBox.SelectedItem.ToString();
+                this.Typ = this.typComboBox.SelectedItem.ToString();
+            }
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -50,5 +55,32 @@ namespace WindowsFormsApp
         {
 
         }
+
+
+        private void kolorComboBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (kolorComboBox.SelectedItem != null)
+                return;
+            e.Cancel = true;
+            detailErrorProvider.SetError(kolorComboBox, "Wybierz kolor.");
+        }
+        private void kolorComboBox_Validated(object sender, EventArgs e)
+        {
+            detailErrorProvider.SetError(kolorComboBox, "");
+        }
+
+        private void typComboBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (typComboBox.SelectedItem != null)
+                return;
+            e.Cancel = true;
+            detailErrorProvider.SetError(typComboBox, "Wybierz typ.");
+        }
+
+        private void typComboBox_Validated(object sender, EventArgs e)
+        {
+            detailErrorProvider.SetError(typComboBox, "");
+        }
     }
 }
+

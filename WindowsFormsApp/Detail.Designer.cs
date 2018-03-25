@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.detailTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.okButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
             this.kolorComboBox = new System.Windows.Forms.ComboBox();
             this.typComboBox = new System.Windows.Forms.ComboBox();
             this.wspolrzedneTextBox = new System.Windows.Forms.TextBox();
@@ -41,7 +40,11 @@
             this.wspolrzedneLabel = new System.Windows.Forms.Label();
             this.poleLabel = new System.Windows.Forms.Label();
             this.etykietaLabel = new System.Windows.Forms.Label();
+            this.okButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.detailErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.detailTableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.detailErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // detailTableLayoutPanel
@@ -71,26 +74,6 @@
             this.detailTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.detailTableLayoutPanel.Size = new System.Drawing.Size(471, 141);
             this.detailTableLayoutPanel.TabIndex = 0;
-            // 
-            // okButton
-            // 
-            this.okButton.Location = new System.Drawing.Point(89, 160);
-            this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(75, 23);
-            this.okButton.TabIndex = 1;
-            this.okButton.Text = "OK";
-            this.okButton.UseVisualStyleBackColor = true;
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.Location = new System.Drawing.Point(319, 161);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 2;
-            this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // kolorComboBox
             // 
@@ -182,10 +165,37 @@
             this.etykietaLabel.TabIndex = 9;
             this.etykietaLabel.Text = "Tekst etykiety";
             // 
+            // okButton
+            // 
+            this.okButton.Location = new System.Drawing.Point(89, 160);
+            this.okButton.Name = "okButton";
+            this.okButton.Size = new System.Drawing.Size(75, 23);
+            this.okButton.TabIndex = 1;
+            this.okButton.Text = "OK";
+            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.Location = new System.Drawing.Point(319, 161);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 2;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // detailErrorProvider
+            // 
+            this.detailErrorProvider.ContainerControl = this;
+            // 
             // Detail
             // 
+            this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(469, 196);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
@@ -195,6 +205,7 @@
             this.Load += new System.EventHandler(this.Detail_Load);
             this.detailTableLayoutPanel.ResumeLayout(false);
             this.detailTableLayoutPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.detailErrorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -214,5 +225,6 @@
         private System.Windows.Forms.Label wspolrzedneLabel;
         private System.Windows.Forms.Label poleLabel;
         private System.Windows.Forms.Label etykietaLabel;
+        private System.Windows.Forms.ErrorProvider detailErrorProvider;
     }
 }
