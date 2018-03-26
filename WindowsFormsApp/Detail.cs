@@ -116,10 +116,14 @@ namespace WindowsFormsApp
 
         private void poleTextBox_Validating(object sender, CancelEventArgs e)
         {
-            if (poleTextBox.Text != null)
-                return;
-            e.Cancel = true;
-            detailErrorProvider.SetError(poleTextBox, "Uzupełnij pole.");
+            try
+            {
+                double.Parse(poleTextBox.Text);
+            } catch
+            {
+                detailErrorProvider.SetError(poleTextBox, "Kontrolka zawiera nieprawidłowe znaki.");
+                e.Cancel = true;
+            }  
         }
         private void poleTextBox_Validated(object sender, EventArgs e)
         {

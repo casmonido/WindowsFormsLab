@@ -26,6 +26,7 @@ namespace WindowsFormsApp
             Lista lista = new Lista();
             widoki.Add(lista);
             lista.MdiParent = this;
+            lista.refresh(ref listaFigur);
             lista.Show();
         }
 
@@ -45,7 +46,7 @@ namespace WindowsFormsApp
         public void dodajFigure(string kolor, string typ,
                     string wspolrzedne, string pole, string etykieta)
         {
-            listaFigur.Add(new Figura(kolor, typ, 3.4, new WspolrzedneSrodka(3, 4)));
+            listaFigur.Add(new Figura(kolor, typ, double.Parse(pole), new WspolrzedneSrodka(3, 4), etykieta));
             foreach (RefreshableForm f in widoki)
                 f.refresh(ref listaFigur);
         }
@@ -53,7 +54,16 @@ namespace WindowsFormsApp
         public void edytujFigure(object tag, string kolor, string typ,
                     string wspolrzedne, string pole, string etykieta)
         {
-
+            foreach (Figura f in listaFigur)
+                if (f == tag)
+                {
+                    f.Kolor = kolor;
+                    f.Typ = typ;
+                    f.WspolrzedneSrodka.X = 4;
+                    f.WspolrzedneSrodka.X = 5;
+                    f.Pole = double.Parse(pole);
+                    f.Etykieta = etykieta;
+                }
             foreach (RefreshableForm f in widoki)
                 f.refresh(ref listaFigur);
         }

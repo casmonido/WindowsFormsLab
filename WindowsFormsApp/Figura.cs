@@ -38,12 +38,14 @@ namespace WindowsFormsApp
             set;
         }
 
-        public Figura(string kolor, string typ, double pole, WspolrzedneSrodka wspolrzedne)
+        public Figura(string kolor, string typ, double pole, 
+            WspolrzedneSrodka wspolrzedne, string etykieta)
         {
             Kolor = kolor;
             Typ = typ;
             Pole = pole;
             WspolrzedneSrodka = wspolrzedne;
+            Etykieta = etykieta;
         }
     }
 }
