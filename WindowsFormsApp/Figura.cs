@@ -26,6 +26,12 @@ namespace WindowsFormsApp
             set;
         }
 
+        public string Etykieta
+        {
+            get;
+            set;
+        }
+
         public WspolrzedneSrodka WspolrzedneSrodka
         {
             get;

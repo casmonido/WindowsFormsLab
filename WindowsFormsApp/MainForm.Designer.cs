@@ -60,7 +60,7 @@
             this.otwórzListęToolStripMenuItem.Name = "otwórzListęToolStripMenuItem";
             this.otwórzListęToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.otwórzListęToolStripMenuItem.Text = "Otwórz listę";
-            this.otwórzListęToolStripMenuItem.Click += new System.EventHandler(this.otwórzListęToolStripMenuItem_Click);
+            this.otwórzListęToolStripMenuItem.Click += new System.EventHandler(this.otworzListęToolStripMenuItem_Click);
             // 
             // MainForm
             // 

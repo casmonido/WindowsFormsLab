@@ -8,6 +8,11 @@ namespace WindowsFormsApp
 {
     public class WspolrzedneSrodka
     {
+        public string toString()
+        {
+            return X + ", " + Y;
+        }
+
         public int X
         {
             get;
@@ -20,7 +25,7 @@ namespace WindowsFormsApp
             set;
         }
 
-        WspolrzedneSrodka(int x, int y)
+        public WspolrzedneSrodka(int x, int y)
         {
             this.Y = y;
             this.X = x;

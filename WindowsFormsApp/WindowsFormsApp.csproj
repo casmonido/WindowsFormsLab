@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RefreshableForm.cs" />
     <Compile Include="WspolrzedneSrodka.cs" />
     <Compile Include="Figura.cs" />
     <Compile Include="Detail.cs">

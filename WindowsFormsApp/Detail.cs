@@ -25,15 +25,32 @@ namespace WindowsFormsApp
             InitializeComponent();
         }
 
+        private void copyToControls(ListViewItem listViewItem)
+        {
+            kolorComboBox.Text = listViewItem.SubItems[0].Text;
+            typComboBox.Text = listViewItem.SubItems[1].Text;
+            if (listViewItem.SubItems.Count >= 3)
+                wspolrzedneTextBox.Text = listViewItem.SubItems[2].Text;
+            if (listViewItem.SubItems.Count >= 4)
+                poleTextBox.Text = listViewItem.SubItems[3].Text;
+            if (listViewItem.SubItems.Count >= 5)
+                etykietaTextBox.Text = listViewItem.SubItems[4].Text;
+        }
+
+        private void copyToPublicAttributes()
+        {
+            this.Kolor = this.kolorComboBox.SelectedItem.ToString();
+            this.Typ = this.typComboBox.SelectedItem.ToString();
+            this.Wspolrzedne = this.wspolrzedneTextBox.Text;
+            this.Pole = this.poleTextBox.Text;
+            this.Etykieta = this.etykietaTextBox.Text;
+        }
+
         public Detail(ListViewItem listViewItem)
         {
             this.listViewItem = listViewItem;
             InitializeComponent();
-            kolorComboBox.Text = listViewItem.SubItems[0].Text;
-            typComboBox.Text = listViewItem.SubItems[1].Text;
-            wspolrzedneTextBox.Text = listViewItem.SubItems[2].Text;
-            poleTextBox.Text = listViewItem.SubItems[3].Text;
-            etykietaTextBox.Text = listViewItem.SubItems[4].Text;
+            copyToControls(listViewItem);
         }
 
         private void Detail_Load(object sender, EventArgs e)
@@ -46,11 +63,7 @@ namespace WindowsFormsApp
             if (ValidateChildren())
             {
                 DialogResult = DialogResult.OK;
-                this.Kolor = this.kolorComboBox.SelectedItem.ToString();
-                this.Typ = this.typComboBox.SelectedItem.ToString();
-                this.Wspolrzedne = this.wspolrzedneTextBox.Text;
-                this.Pole = this.poleTextBox.Text;
-                this.Etykieta = this.etykietaTextBox.Text;
+                copyToPublicAttributes();
             }
         }
 
