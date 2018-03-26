@@ -18,11 +18,12 @@ namespace WindowsFormsApp
         public MainForm()
         {
             InitializeComponent();
+            LayoutMdi(MdiLayout.Cascade);
         }
 
-        private void otworzListęToolStripMenuItem_Click(object sender, EventArgs e)
+        private void otworzListeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Lista lista = new Lista(ref listaFigur);
+            Lista lista = new Lista();
             widoki.Add(lista);
             lista.MdiParent = this;
             lista.Show();
@@ -30,12 +31,10 @@ namespace WindowsFormsApp
 
         private void mDIToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
         }
 
         private void mainMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            LayoutMdi(MdiLayout.Cascade);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -48,21 +47,22 @@ namespace WindowsFormsApp
         {
             listaFigur.Add(new Figura(kolor, typ, 3.4, new WspolrzedneSrodka(3, 4)));
             foreach (RefreshableForm f in widoki)
-                f.refresh();
+                f.refresh(ref listaFigur);
         }
 
-        public void edytujFigure()
+        public void edytujFigure(object tag, string kolor, string typ,
+                    string wspolrzedne, string pole, string etykieta)
         {
 
             foreach (RefreshableForm f in widoki)
-                f.refresh();
+                f.refresh(ref listaFigur);
         }
 
-        public void usunFigure()
+        public void usunFigure(Figura tag)
         {
-
+            listaFigur.Remove(tag);
             foreach (RefreshableForm f in widoki)
-                f.refresh();
+                f.refresh(ref listaFigur);
         }
     }
 }

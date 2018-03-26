@@ -8,6 +8,6 @@ namespace WindowsFormsApp
 {
     public interface RefreshableForm
     {
-        void refresh();
+        void refresh(ref List<Figura> list);
     }
 }

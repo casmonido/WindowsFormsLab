@@ -12,20 +12,18 @@ namespace WindowsFormsApp
 {
     public partial class Lista : Form, RefreshableForm
     {
-        private List<Figura> listaFigur; //ref?
-
-        public Lista(ref List<Figura> listaFigur)
+        public Lista()
         {
-            this.listaFigur = listaFigur;
             InitializeComponent();
         }
 
-        public void refresh()
+        public void refresh(ref List<Figura> list)
         {
             shapeList.Items.Clear();
-            foreach (Figura d in listaFigur)
+            foreach (Figura d in list)
             {
                 ListViewItem lvi = new ListViewItem(d.Kolor);
+                lvi.Tag = d;
                 lvi.SubItems.Add(d.Typ);
                 lvi.SubItems.Add(d.WspolrzedneSrodka.toString());
                 lvi.SubItems.Add(d.Pole.ToString());
@@ -61,11 +59,8 @@ namespace WindowsFormsApp
             Detail d = new Detail(shapeList.SelectedItems[0]);
             if (d.ShowDialog() == DialogResult.OK)
             {
-                shapeList.SelectedItems[0].SubItems[0].Text = d.Kolor;
-                shapeList.SelectedItems[0].SubItems[1].Text = d.Typ;
-                shapeList.SelectedItems[0].SubItems[2].Text = d.Wspolrzedne;
-                shapeList.SelectedItems[0].SubItems[4].Text = d.Pole;
-                shapeList.SelectedItems[0].SubItems[5].Text = d.Etykieta;
+                ((MainForm)this.MdiParent).edytujFigure(shapeList.SelectedItems[0].Tag, 
+                    d.Kolor, d.Typ, d.Wspolrzedne, d.Pole, d.Etykieta);
             }
         }
 
@@ -78,7 +73,7 @@ namespace WindowsFormsApp
         {
             if (shapeList.SelectedItems.Count < 1)
                 return;
-            shapeList.SelectedItems[0].Remove();
+            ((MainForm)this.MdiParent).usunFigure((Figura)shapeList.SelectedItems[0].Tag);
         }
 
     }
