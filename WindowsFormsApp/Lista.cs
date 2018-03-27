@@ -13,6 +13,8 @@ namespace WindowsFormsApp
     public partial class Lista : Form, RefreshableForm
     {
         List<Figura> reflist;
+        
+        public event EventHandler ListItemsCount;
 
         public Lista(ref List<Figura> list)
         {
@@ -30,6 +32,7 @@ namespace WindowsFormsApp
                     (filtrUpperCheckBox.Checked && d.Pole >= 100))
                     addFigureToList(ref shapeList, d); //hurr
             }
+            emitEvent();
         }
 
         private void addFigureToList(ref ListView list, Figura d)
@@ -61,14 +64,25 @@ namespace WindowsFormsApp
                     if (f.Tag == d)
                     {// modyfikuj
                         modifyFigureOnList(f, d);
+                        emitEvent();
                         return;
                     }
                 //nie znaleziono
                 addFigureToList(ref shapeList, d);
+                emitEvent();
                 return;
             }
             //else
             refreshDelete(d);
+            emitEvent();
+        }
+
+        private void emitEvent()
+        {
+            if (ListItemsCount != null)
+            {
+                ListItemsCount(this, null);
+            }
         }
 
         public void refreshInsert(Figura d)
@@ -76,6 +90,7 @@ namespace WindowsFormsApp
             if ((filtrLowerCheckBox.Checked && d.Pole < 100) ||
                 (filtrUpperCheckBox.Checked && d.Pole >= 100))
                 addFigureToList(ref shapeList, d);
+            emitEvent();
         }
 
         public void refreshDelete(Figura d)
@@ -84,6 +99,7 @@ namespace WindowsFormsApp
             if (f.Tag == d)
             {
                 shapeList.Items.Remove(f);
+                emitEvent();
                 return;
             }
         }

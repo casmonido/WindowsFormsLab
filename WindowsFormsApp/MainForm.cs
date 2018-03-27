@@ -31,7 +31,9 @@ namespace WindowsFormsApp
             }
             toolStripStatusLabel.Text = 
                 ((RefreshableForm)ActiveMdiChild).DisplayedListSize().ToString();
-            
+            ((RefreshableForm)ActiveMdiChild).ListItemsCount += MdiChildActiveChanged;
+
+
         }
 
         private void otworzListeToolStripMenuItem_Click(object sender, EventArgs e)

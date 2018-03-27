@@ -10,6 +10,7 @@ namespace WindowsFormsApp
     {
         //void refresh(ref List<Figura> list);
         //void refresh();
+        event EventHandler ListItemsCount;
 
         int DisplayedListSize();
 
