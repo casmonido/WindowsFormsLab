@@ -12,6 +12,10 @@ namespace WindowsFormsApp
 {
     public partial class Lista : Form, RefreshableForm
     {
+        private bool Pponizej100 = false;
+        private bool Ppowyzej100 = false;
+        List<Figura> reflist;
+
         public Lista()
         {
             InitializeComponent();
@@ -19,16 +23,21 @@ namespace WindowsFormsApp
 
         public void refresh(ref List<Figura> list)
         {
+            reflist = list;
             shapeList.Items.Clear();
             foreach (Figura d in list)
             {
-                ListViewItem lvi = new ListViewItem(d.Kolor);
-                lvi.Tag = d;
-                lvi.SubItems.Add(d.Typ);
-                lvi.SubItems.Add(d.WspolrzedneSrodka.toString());
-                lvi.SubItems.Add(d.Pole.ToString());
-                lvi.SubItems.Add(d.Etykieta);
-                shapeList.Items.Add(lvi);
+                if ((Pponizej100 && d.Pole < 100) ||
+                    (Ppowyzej100 && d.Pole >= 100))
+                {
+                    ListViewItem lvi = new ListViewItem(d.Kolor);
+                    lvi.Tag = d;
+                    lvi.SubItems.Add(d.Typ);
+                    lvi.SubItems.Add(d.WspolrzedneSrodka.toString());
+                    lvi.SubItems.Add(d.Pole.ToString());
+                    lvi.SubItems.Add(d.Etykieta);
+                    shapeList.Items.Add(lvi);
+                }
             }
         }
 
@@ -83,12 +92,20 @@ namespace WindowsFormsApp
 
         private void filtrUpperCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (Ppowyzej100)
+                Ppowyzej100 = false;
+            else
+                Ppowyzej100 = true;
+            refresh(ref reflist);
         }
 
         private void filtrLowerCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (Pponizej100)
+                Pponizej100 = false;
+            else
+                Pponizej100 = true;
+            refresh(ref reflist);
         }
     }
 }
