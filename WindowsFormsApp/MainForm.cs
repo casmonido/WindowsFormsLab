@@ -23,10 +23,9 @@ namespace WindowsFormsApp
 
         private void otworzListeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Lista lista = new Lista();
+            Lista lista = new Lista(ref listaFigur);
             widoki.Add(lista);
             lista.MdiParent = this;
-            lista.refresh(ref listaFigur);
             lista.Show();
         }
 
@@ -46,12 +45,13 @@ namespace WindowsFormsApp
         public void dodajFigure(string kolor, string typ,
                     string wspolrzedne, string pole, string etykieta)
         {
-            listaFigur.Add(new Figura(kolor, typ, double.Parse(pole), new WspolrzedneSrodka(3, 4), etykieta));
+            Figura nowa = new Figura(kolor, typ, double.Parse(pole), new WspolrzedneSrodka(3, 4), etykieta);
+            listaFigur.Add(nowa);
             foreach (RefreshableForm f in widoki)
-                f.refresh(ref listaFigur);
+                f.refreshInsert(nowa);
         }
 
-        public void edytujFigure(object tag, string kolor, string typ,
+        public void edytujFigure(Figura tag, string kolor, string typ,
                     string wspolrzedne, string pole, string etykieta)
         {
             foreach (Figura f in listaFigur)
@@ -64,15 +64,15 @@ namespace WindowsFormsApp
                     f.Pole = double.Parse(pole);
                     f.Etykieta = etykieta;
                 }
-            foreach (RefreshableForm f in widoki)
-                f.refresh(ref listaFigur);
+            foreach (RefreshableForm rf in widoki)
+                rf.refreshModify(tag);
         }
 
         public void usunFigure(Figura tag)
         {
             listaFigur.Remove(tag);
             foreach (RefreshableForm f in widoki)
-                f.refresh(ref listaFigur);
+                f.refreshDelete(tag);
         }
     }
 }
