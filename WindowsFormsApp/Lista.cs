@@ -76,5 +76,19 @@ namespace WindowsFormsApp
             ((MainForm)this.MdiParent).usunFigure((Figura)shapeList.SelectedItems[0].Tag);
         }
 
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void filtrUpperCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void filtrLowerCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
