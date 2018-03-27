@@ -116,6 +116,11 @@ namespace WindowsFormsApp
                     d.Kolor, d.Typ, d.Wspolrzedne, d.Pole, d.Etykieta);
         }
 
+        public int DisplayedListSize()
+        {
+            return shapeList.Items.Count;
+        }
+
         private void Lista_Load(object sender, EventArgs e)
         {
 

@@ -19,6 +19,19 @@ namespace WindowsFormsApp
         {
             InitializeComponent();
             LayoutMdi(MdiLayout.Cascade);
+            this.MdiChildActivate += MdiChildActiveChanged;
+        }
+
+        private void MdiChildActiveChanged(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild == null)
+            {
+                toolStripStatusLabel.Text = "";
+                return;
+            }
+            toolStripStatusLabel.Text = 
+                ((RefreshableForm)ActiveMdiChild).DisplayedListSize().ToString();
+            
         }
 
         private void otworzListeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,6 +86,11 @@ namespace WindowsFormsApp
             listaFigur.Remove(tag);
             foreach (RefreshableForm f in widoki)
                 f.refreshDelete(tag);
+        }
+
+        private void statusStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

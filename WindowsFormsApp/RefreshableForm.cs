@@ -11,6 +11,8 @@ namespace WindowsFormsApp
         //void refresh(ref List<Figura> list);
         //void refresh();
 
+        int DisplayedListSize();
+
         void refreshInsert(Figura d);
 
         void refreshDelete(Figura d);
