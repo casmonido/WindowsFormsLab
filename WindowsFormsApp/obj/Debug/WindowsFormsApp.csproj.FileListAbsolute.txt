@@ -10,3 +10,4 @@ C:\Users\casmonido\source\repos\WindowsFormsApp\WindowsFormsApp\obj\Debug\Window
 C:\Users\casmonido\source\repos\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.Lista.resources
 C:\Users\casmonido\source\repos\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.MainForm.resources
 C:\Users\casmonido\source\repos\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.Detail.resources
+C:\Users\casmonido\source\repos\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.ColorUserControl.resources

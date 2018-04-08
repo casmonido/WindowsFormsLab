@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.detailTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.kolorComboBox = new System.Windows.Forms.ComboBox();
             this.typComboBox = new System.Windows.Forms.ComboBox();
             this.wspolrzedneTextBox = new System.Windows.Forms.TextBox();
             this.poleTextBox = new System.Windows.Forms.TextBox();
@@ -43,6 +42,7 @@
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.detailErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.colorUserControl = new WindowsFormsApp.ColorUserControl();
             this.detailTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.detailErrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +54,6 @@
             this.detailTableLayoutPanel.ColumnCount = 2;
             this.detailTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.23779F));
             this.detailTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.76221F));
-            this.detailTableLayoutPanel.Controls.Add(this.kolorComboBox, 1, 0);
             this.detailTableLayoutPanel.Controls.Add(this.typComboBox, 1, 1);
             this.detailTableLayoutPanel.Controls.Add(this.wspolrzedneTextBox, 1, 2);
             this.detailTableLayoutPanel.Controls.Add(this.poleTextBox, 1, 3);
@@ -64,6 +63,7 @@
             this.detailTableLayoutPanel.Controls.Add(this.wspolrzedneLabel, 0, 2);
             this.detailTableLayoutPanel.Controls.Add(this.poleLabel, 0, 3);
             this.detailTableLayoutPanel.Controls.Add(this.etykietaLabel, 0, 4);
+            this.detailTableLayoutPanel.Controls.Add(this.colorUserControl, 1, 0);
             this.detailTableLayoutPanel.Location = new System.Drawing.Point(1, 12);
             this.detailTableLayoutPanel.Name = "detailTableLayoutPanel";
             this.detailTableLayoutPanel.RowCount = 5;
@@ -74,20 +74,6 @@
             this.detailTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.detailTableLayoutPanel.Size = new System.Drawing.Size(471, 141);
             this.detailTableLayoutPanel.TabIndex = 0;
-            // 
-            // kolorComboBox
-            // 
-            this.kolorComboBox.FormattingEnabled = true;
-            this.kolorComboBox.Items.AddRange(new object[] {
-            "Czerwony",
-            "Zielony",
-            "Niebieski"});
-            this.kolorComboBox.Location = new System.Drawing.Point(135, 3);
-            this.kolorComboBox.Name = "kolorComboBox";
-            this.kolorComboBox.Size = new System.Drawing.Size(121, 21);
-            this.kolorComboBox.TabIndex = 0;
-            this.kolorComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.kolorComboBox_Validating);
-            this.kolorComboBox.Validated += new System.EventHandler(this.kolorComboBox_Validated);
             // 
             // typComboBox
             // 
@@ -199,6 +185,15 @@
             // 
             this.detailErrorProvider.ContainerControl = this;
             // 
+            // colorUserControl
+            // 
+            this.colorUserControl.Kolor = "";
+            this.colorUserControl.Location = new System.Drawing.Point(135, 3);
+            this.colorUserControl.Name = "colorUserControl";
+            this.colorUserControl.Size = new System.Drawing.Size(251, 22);
+            this.colorUserControl.TabIndex = 10;
+            this.colorUserControl.Load += new System.EventHandler(this.colorUserControl_Load);
+            // 
             // Detail
             // 
             this.AcceptButton = this.okButton;
@@ -224,7 +219,6 @@
         private System.Windows.Forms.TableLayoutPanel detailTableLayoutPanel;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.ComboBox kolorComboBox;
         private System.Windows.Forms.ComboBox typComboBox;
         private System.Windows.Forms.TextBox wspolrzedneTextBox;
         private System.Windows.Forms.TextBox poleTextBox;
@@ -235,5 +229,6 @@
         private System.Windows.Forms.Label poleLabel;
         private System.Windows.Forms.Label etykietaLabel;
         private System.Windows.Forms.ErrorProvider detailErrorProvider;
+        private ColorUserControl colorUserControl;
     }
 }

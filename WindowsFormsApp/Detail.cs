@@ -27,7 +27,7 @@ namespace WindowsFormsApp
 
         private void copyToControls(ListViewItem listViewItem)
         {
-            kolorComboBox.Text = listViewItem.SubItems[0].Text;
+            colorUserControl.Kolor = listViewItem.SubItems[0].Text;
             typComboBox.Text = listViewItem.SubItems[1].Text;
             if (listViewItem.SubItems.Count >= 3)
                 wspolrzedneTextBox.Text = listViewItem.SubItems[2].Text;
@@ -39,7 +39,7 @@ namespace WindowsFormsApp
 
         private void copyToPublicAttributes()
         {
-            this.Kolor = this.kolorComboBox.SelectedItem.ToString();
+            this.Kolor = this.colorUserControl.Kolor;
             this.Typ = this.typComboBox.SelectedItem.ToString();
             this.Wspolrzedne = this.wspolrzedneTextBox.Text;
             this.Pole = this.poleTextBox.Text;
@@ -80,14 +80,14 @@ namespace WindowsFormsApp
 
         private void kolorComboBox_Validating(object sender, CancelEventArgs e)
         {
-            if (kolorComboBox.SelectedItem != null)
-                return;
+           /*if ("".Equals(colorUserControl.Kolor))
+               return;
             e.Cancel = true;
-            detailErrorProvider.SetError(kolorComboBox, "Wybierz kolor.");
+            detailErrorProvider.SetError(colorUserControl, "Wybierz kolor.");*/
         }
         private void kolorComboBox_Validated(object sender, EventArgs e)
         {
-            detailErrorProvider.SetError(kolorComboBox, "");
+            //detailErrorProvider.SetError(colorUserControl, "");
         }
 
         private void typComboBox_Validating(object sender, CancelEventArgs e)
@@ -128,6 +128,11 @@ namespace WindowsFormsApp
         private void poleTextBox_Validated(object sender, EventArgs e)
         {
             detailErrorProvider.SetError(poleTextBox, "");
+        }
+
+        private void colorUserControl_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
