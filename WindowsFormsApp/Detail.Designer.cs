@@ -149,7 +149,7 @@
             // colorUserControl
             // 
             this.colorUserControl.CausesValidation = false;
-            this.colorUserControl.Kolor = "Czerwony";
+            //this.colorUserControl.Kolor = "Czerwony";
             this.colorUserControl.Location = new System.Drawing.Point(130, 3);
             this.colorUserControl.Name = "colorUserControl";
             this.colorUserControl.Size = new System.Drawing.Size(251, 22);

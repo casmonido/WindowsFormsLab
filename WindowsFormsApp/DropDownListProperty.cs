@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp
 {
+
     [Editor(typeof(AngleEditor), typeof(System.Drawing.Design.UITypeEditor))]
     public class DropDownListProperty
     {
@@ -30,6 +31,8 @@ namespace WindowsFormsApp
             Values = values;
         }
 
+        [Category("Color picker")]
+        [BrowsableAttribute(true)]
         public List<string> Values
         {
             get
@@ -46,6 +49,7 @@ namespace WindowsFormsApp
             }
         }
 
+        [Category("Color picker")]
         [Browsable(false)]
         public string SelectedItem { get; set; }
 

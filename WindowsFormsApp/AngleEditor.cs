@@ -46,43 +46,32 @@ namespace WindowsFormsApp
         public override object EditValue(System.ComponentModel.ITypeDescriptorContext context,
         System.IServiceProvider provider, object value)
         {
-            /*IWindowsFormsEditorService edSvc =
-            (IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService));
-            if (edSvc != null)
-            {
-                AngleControl angleControl = new AngleControl((string)value);
-                edSvc.DropDownControl(angleControl);
-                return angleControl.Kolor;
-            }
-            return value;*/
-            if (provider != null)
-            {
-                // This service is in charge of popping our ListBox.
-                _service = ((IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService)));
+            if (provider == null)
+                return value;
+            _service =
+                ((IWindowsFormsEditorService)provider.GetService(
+                    typeof(IWindowsFormsEditorService)));
 
-                if (_service != null && value is DropDownListProperty)
+            if (_service != null && value is DropDownListProperty)
+            {
+                //AngleControl angleControl = new AngleControl((string)value);
+
+                var property = (DropDownListProperty)value;
+                DropDownListProperty p = new DropDownListProperty();
+                var list = new ListBox();
+                list.Click += ListBox_Click;
+
+                foreach (string item in property.Values)
                 {
-                    var property = (DropDownListProperty)value;
+                    list.Items.Add(item);
+                }
+                // Drop the list control.
+                _service.DropDownControl(list);
 
-                    var list = new ListBox();
-                    list.Click += ListBox_Click;
-
-                    foreach (string item in property.Values)
-                    {
-                        list.Items.Add(item);
-                    }
-                    //list.Items.Add("Czerwony");
-                    //list.Items.Add("Zielony");
-                    //list.Items.Add("Niebieski");
-
-                    // Drop the list control.
-                    _service.DropDownControl(list);
-
-                    if (list.SelectedItem != null && list.SelectedIndices.Count == 1)
-                    {
-                        property.SelectedItem = list.SelectedItem.ToString();
-                        value = property;
-                    }
+                if (list.SelectedItem != null && list.SelectedIndices.Count == 1)
+                {
+                    property.SelectedItem = list.SelectedItem.ToString();
+                    value = property;
                 }
             }
 

@@ -27,7 +27,7 @@ namespace WindowsFormsApp
 
         private void copyToControls(ListViewItem listViewItem)
         {
-            colorUserControl.Kolor = listViewItem.SubItems[0].Text;
+            //colorUserControl.Kolor = listViewItem.SubItems[0].Text;
             typComboBox.Text = listViewItem.SubItems[1].Text;
             if (listViewItem.SubItems.Count >= 3)
                 wspolrzedneTextBox.Text = listViewItem.SubItems[2].Text;
@@ -39,7 +39,7 @@ namespace WindowsFormsApp
 
         private void copyToPublicAttributes()
         {
-            this.Kolor = this.colorUserControl.Kolor;
+            //this.Kolor = this.colorUserControl.Kolor;
             this.Typ = this.typComboBox.SelectedItem.ToString();
             this.Wspolrzedne = this.wspolrzedneTextBox.Text;
             this.Pole = this.poleTextBox.Text;

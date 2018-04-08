@@ -12,24 +12,40 @@ namespace WindowsFormsApp
 {
     public partial class ColorUserControl : UserControl
     {
-        [EditorAttribute(typeof(AngleEditor),
+        private MarqueeLightShape lightShapeValue;
+
+        [Category("Marquee")]
+        [Browsable(true)]
+        [EditorAttribute(typeof(LightShapeSelectionControl.LightShapeEditor),
+        typeof(System.Drawing.Design.UITypeEditor))]
+        public MarqueeLightShape LightShape
+        {
+            get
+            {
+                return this.lightShapeValue;
+            }
+
+            set
+            {
+                this.lightShapeValue = value;
+            }
+        }
+        /*[EditorAttribute(typeof(AngleEditor),
             typeof(System.Drawing.Design.UITypeEditor))]
         [Category("Color picker")]
         [BrowsableAttribute(true)]
-        public string Kolor
+        public DropDownListProperty Kolor
         {
             set
             {
-                comboBox.Text = value;
+                comboBox.SelectedItem = value;
                 Invalidate();
             }
             get
             {
-                if (comboBox.SelectedItem != null)
-                    return comboBox.SelectedItem.ToString();
-                return "";
+                return (DropDownListProperty) comboBox.SelectedItem;
             }
-        }
+        }*/
 
         public ColorUserControl()
         {
