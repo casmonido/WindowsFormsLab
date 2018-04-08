@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AngleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AngleEditor.cs" />
     <Compile Include="ColorUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -53,6 +57,12 @@
       <DependentUpon>ColorUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="RefreshableForm.cs" />
+    <Compile Include="AngleEditorTestControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AngleEditorTestControl.Designer.cs">
+      <DependentUpon>AngleEditorTestControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="WspolrzedneSrodka.cs" />
     <Compile Include="Figura.cs" />
     <Compile Include="Detail.cs">
@@ -75,6 +85,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AngleControl.resx">
+      <DependentUpon>AngleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AngleEditorTestControl.resx">
+      <DependentUpon>AngleEditorTestControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ColorUserControl.resx">
       <DependentUpon>ColorUserControl.cs</DependentUpon>
     </EmbeddedResource>

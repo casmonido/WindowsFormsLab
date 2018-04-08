@@ -43,6 +43,7 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.detailErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.colorUserControl = new WindowsFormsApp.ColorUserControl();
+            this.angleEditorTestControl1 = new WindowsFormsApp.AngleEditorTestControl();
             this.detailTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.detailErrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -64,15 +65,17 @@
             this.detailTableLayoutPanel.Controls.Add(this.poleLabel, 0, 3);
             this.detailTableLayoutPanel.Controls.Add(this.etykietaLabel, 0, 4);
             this.detailTableLayoutPanel.Controls.Add(this.colorUserControl, 1, 0);
+            this.detailTableLayoutPanel.Controls.Add(this.angleEditorTestControl1, 1, 5);
             this.detailTableLayoutPanel.Location = new System.Drawing.Point(1, 12);
             this.detailTableLayoutPanel.Name = "detailTableLayoutPanel";
-            this.detailTableLayoutPanel.RowCount = 5;
+            this.detailTableLayoutPanel.RowCount = 6;
             this.detailTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.detailTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.detailTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.detailTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.detailTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.detailTableLayoutPanel.Size = new System.Drawing.Size(471, 141);
+            this.detailTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 107F));
+            this.detailTableLayoutPanel.Size = new System.Drawing.Size(452, 252);
             this.detailTableLayoutPanel.TabIndex = 0;
             // 
             // typComboBox
@@ -81,7 +84,7 @@
             this.typComboBox.Items.AddRange(new object[] {
             "Trójkąt",
             "Prostokąt"});
-            this.typComboBox.Location = new System.Drawing.Point(135, 31);
+            this.typComboBox.Location = new System.Drawing.Point(130, 32);
             this.typComboBox.Name = "typComboBox";
             this.typComboBox.Size = new System.Drawing.Size(121, 21);
             this.typComboBox.TabIndex = 1;
@@ -90,7 +93,7 @@
             // 
             // wspolrzedneTextBox
             // 
-            this.wspolrzedneTextBox.Location = new System.Drawing.Point(135, 59);
+            this.wspolrzedneTextBox.Location = new System.Drawing.Point(130, 61);
             this.wspolrzedneTextBox.Name = "wspolrzedneTextBox";
             this.wspolrzedneTextBox.Size = new System.Drawing.Size(121, 20);
             this.wspolrzedneTextBox.TabIndex = 2;
@@ -100,7 +103,7 @@
             // 
             // poleTextBox
             // 
-            this.poleTextBox.Location = new System.Drawing.Point(135, 87);
+            this.poleTextBox.Location = new System.Drawing.Point(130, 90);
             this.poleTextBox.Name = "poleTextBox";
             this.poleTextBox.Size = new System.Drawing.Size(121, 20);
             this.poleTextBox.TabIndex = 3;
@@ -109,7 +112,7 @@
             // 
             // etykietaTextBox
             // 
-            this.etykietaTextBox.Location = new System.Drawing.Point(135, 115);
+            this.etykietaTextBox.Location = new System.Drawing.Point(130, 119);
             this.etykietaTextBox.Name = "etykietaTextBox";
             this.etykietaTextBox.Size = new System.Drawing.Size(185, 20);
             this.etykietaTextBox.TabIndex = 4;
@@ -126,7 +129,7 @@
             // typLabel
             // 
             this.typLabel.AutoSize = true;
-            this.typLabel.Location = new System.Drawing.Point(3, 28);
+            this.typLabel.Location = new System.Drawing.Point(3, 29);
             this.typLabel.Name = "typLabel";
             this.typLabel.Size = new System.Drawing.Size(25, 13);
             this.typLabel.TabIndex = 6;
@@ -135,7 +138,7 @@
             // wspolrzedneLabel
             // 
             this.wspolrzedneLabel.AutoSize = true;
-            this.wspolrzedneLabel.Location = new System.Drawing.Point(3, 56);
+            this.wspolrzedneLabel.Location = new System.Drawing.Point(3, 58);
             this.wspolrzedneLabel.Name = "wspolrzedneLabel";
             this.wspolrzedneLabel.Size = new System.Drawing.Size(106, 13);
             this.wspolrzedneLabel.TabIndex = 7;
@@ -144,7 +147,7 @@
             // poleLabel
             // 
             this.poleLabel.AutoSize = true;
-            this.poleLabel.Location = new System.Drawing.Point(3, 84);
+            this.poleLabel.Location = new System.Drawing.Point(3, 87);
             this.poleLabel.Name = "poleLabel";
             this.poleLabel.Size = new System.Drawing.Size(28, 13);
             this.poleLabel.TabIndex = 8;
@@ -153,7 +156,7 @@
             // etykietaLabel
             // 
             this.etykietaLabel.AutoSize = true;
-            this.etykietaLabel.Location = new System.Drawing.Point(3, 112);
+            this.etykietaLabel.Location = new System.Drawing.Point(3, 116);
             this.etykietaLabel.Name = "etykietaLabel";
             this.etykietaLabel.Size = new System.Drawing.Size(73, 13);
             this.etykietaLabel.TabIndex = 9;
@@ -161,7 +164,7 @@
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(89, 160);
+            this.okButton.Location = new System.Drawing.Point(75, 270);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 1;
@@ -173,7 +176,7 @@
             // 
             this.cancelButton.CausesValidation = false;
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(319, 161);
+            this.cancelButton.Location = new System.Drawing.Point(305, 271);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 2;
@@ -187,12 +190,22 @@
             // 
             // colorUserControl
             // 
+            this.colorUserControl.CausesValidation = false;
             this.colorUserControl.Kolor = "";
-            this.colorUserControl.Location = new System.Drawing.Point(135, 3);
+            this.colorUserControl.Location = new System.Drawing.Point(130, 3);
             this.colorUserControl.Name = "colorUserControl";
             this.colorUserControl.Size = new System.Drawing.Size(251, 22);
             this.colorUserControl.TabIndex = 10;
             this.colorUserControl.Load += new System.EventHandler(this.colorUserControl_Load);
+            // 
+            // angleEditorTestControl1
+            // 
+            this.angleEditorTestControl1.CausesValidation = false;
+            this.angleEditorTestControl1.Kolor = "Niebieski";
+            this.angleEditorTestControl1.Location = new System.Drawing.Point(130, 148);
+            this.angleEditorTestControl1.Name = "angleEditorTestControl1";
+            this.angleEditorTestControl1.Size = new System.Drawing.Size(185, 101);
+            this.angleEditorTestControl1.TabIndex = 11;
             // 
             // Detail
             // 
@@ -200,7 +213,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(469, 196);
+            this.ClientSize = new System.Drawing.Size(450, 305);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.detailTableLayoutPanel);
@@ -230,5 +243,6 @@
         private System.Windows.Forms.Label etykietaLabel;
         private System.Windows.Forms.ErrorProvider detailErrorProvider;
         private ColorUserControl colorUserControl;
+        private AngleEditorTestControl angleEditorTestControl1;
     }
 }

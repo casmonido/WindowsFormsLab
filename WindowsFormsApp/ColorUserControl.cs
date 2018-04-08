@@ -17,6 +17,7 @@ namespace WindowsFormsApp
             set
             {
                 comboBox.Text = value;
+                Invalidate();
             }
             get
             {

@@ -11,3 +11,5 @@ C:\Users\casmonido\source\repos\WindowsFormsApp\WindowsFormsApp\obj\Debug\Window
 C:\Users\casmonido\source\repos\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.MainForm.resources
 C:\Users\casmonido\source\repos\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.Detail.resources
 C:\Users\casmonido\source\repos\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.ColorUserControl.resources
+C:\Users\casmonido\source\repos\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.AngleEditorTestControl.resources
+C:\Users\casmonido\source\repos\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.AngleControl.resources
