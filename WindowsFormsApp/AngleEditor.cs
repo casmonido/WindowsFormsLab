@@ -14,10 +14,12 @@ namespace WindowsFormsApp
 {
     public partial class AngleEditor : System.Drawing.Design.UITypeEditor
     {
-        
+        IWindowsFormsEditorService _service;
+
+
         public override void PaintValue(System.Drawing.Design.PaintValueEventArgs e)
         {
-            Color color = Color.Red;
+            Color color = Color.Black;
             switch (e.Value.ToString())
             {
                 case "Czerwony":
@@ -29,12 +31,10 @@ namespace WindowsFormsApp
                 case "Niebieski":
                     color = Color.Blue;
                     break;
-
             }
-            // Fill background and ellipse and center point.
-            e.Graphics.FillRectangle(new SolidBrush(color), e.Bounds.X, e.Bounds.Y,
-            e.Bounds.Width, e.Bounds.Height);
-            // Draw line along the current angle.
+            e.Graphics.FillRectangle(new SolidBrush(color), 
+                e.Bounds.X, e.Bounds.Y,
+                e.Bounds.Width, e.Bounds.Height);
         }
 
         public override bool GetPaintValueSupported(
@@ -43,16 +43,10 @@ namespace WindowsFormsApp
             return true;
         }
 
-        public override System.Drawing.Design.UITypeEditorEditStyle GetEditStyle(
-            System.ComponentModel.ITypeDescriptorContext context)
-        {
-            return UITypeEditorEditStyle.DropDown;
-        }
-
         public override object EditValue(System.ComponentModel.ITypeDescriptorContext context,
         System.IServiceProvider provider, object value)
         {
-            IWindowsFormsEditorService edSvc =
+            /*IWindowsFormsEditorService edSvc =
             (IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService));
             if (edSvc != null)
             {
@@ -60,11 +54,56 @@ namespace WindowsFormsApp
                 edSvc.DropDownControl(angleControl);
                 return angleControl.Kolor;
             }
+            return value;*/
+            if (provider != null)
+            {
+                // This service is in charge of popping our ListBox.
+                _service = ((IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService)));
+
+                if (_service != null && value is DropDownListProperty)
+                {
+                    var property = (DropDownListProperty)value;
+
+                    var list = new ListBox();
+                    list.Click += ListBox_Click;
+
+                    foreach (string item in property.Values)
+                    {
+                        list.Items.Add(item);
+                    }
+                    //list.Items.Add("Czerwony");
+                    //list.Items.Add("Zielony");
+                    //list.Items.Add("Niebieski");
+
+                    // Drop the list control.
+                    _service.DropDownControl(list);
+
+                    if (list.SelectedItem != null && list.SelectedIndices.Count == 1)
+                    {
+                        property.SelectedItem = list.SelectedItem.ToString();
+                        value = property;
+                    }
+                }
+            }
+
             return value;
         }
 
-        public AngleEditor()
+        private void ListBox_Click(object sender, EventArgs e)
         {
+            if (_service != null)
+                _service.CloseDropDown();
+        }
+
+        /// <summary>
+        /// Gets the editing style of the <see cref="EditValue"/> method.
+        /// </summary>
+        /// <param name="context">An ITypeDescriptorContext that can be used to gain additional context information.</param>
+        /// <returns>Returns the DropDown style, since this editor uses a drop down list.</returns>
+        public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
+        {
+            // We're using a drop down style UITypeEditor.
+            return UITypeEditorEditStyle.DropDown;
         }
     }
 }

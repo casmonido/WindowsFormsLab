@@ -12,6 +12,10 @@ namespace WindowsFormsApp
 {
     public partial class ColorUserControl : UserControl
     {
+        [EditorAttribute(typeof(AngleEditor),
+            typeof(System.Drawing.Design.UITypeEditor))]
+        [Category("Color picker")]
+        [BrowsableAttribute(true)]
         public string Kolor
         {
             set
@@ -40,6 +44,11 @@ namespace WindowsFormsApp
         private void button_Click(object sender, EventArgs e)
         {
             button.BackColor = Color.Blue;
+        }
+
+        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
