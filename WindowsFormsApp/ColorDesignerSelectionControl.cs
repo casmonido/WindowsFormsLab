@@ -12,31 +12,20 @@ using System.Drawing.Design;
 
 namespace WindowsFormsApp
 {
-    // This control provides the custom UI for the LightShape property 
-    // of the MarqueeBorder. It is used by the LightShapeEditor. 
     public partial class ColorDesignerSelectionControl : System.Windows.Forms.UserControl
     {
         private ColorEnum colorValue = ColorEnum.Czerwony;
         private IWindowsFormsEditorService editorService = null;
         
-        // This constructor takes a MarqueeLightShape value from the 
-        // design-time environment, which will be used to display 
-        // the initial state. 
+        // This constructor takes Color value from the 
+        // design-time environment
         public ColorDesignerSelectionControl(
             ColorEnum colorVal,
             IWindowsFormsEditorService editorService)
         {
-            // This call is required by the designer.
             InitializeComponent();
-
-            // Cache the light shape value provided by the  
-            // design-time environment. 
-            this.colorValue = colorVal;
-
-            // Cache the reference to the editor service. 
+            this.colorValue = colorVal; 
             this.editorService = editorService;
-
-            // Handle the Click event for the two panels.  
             this.greenPanel.Click += new EventHandler(greenPanel_Click);
             this.redPanel.Click += new EventHandler(redPanel_Click);
             this.bluePanel.Click += new EventHandler(bluePanel_Click);
@@ -71,7 +60,7 @@ namespace WindowsFormsApp
             {
                 // If the Square option has been selected, draw a  
                 // border inside the squarePanel. 
-                if (this.colorValue == ColorEnum.Zielony)
+                //if (this.colorValue == ColorEnum.Zielony)
                 {
                     gGreen.DrawRectangle(
                         Pens.Green,
@@ -83,7 +72,7 @@ namespace WindowsFormsApp
 
                 // If the Circle option has been selected, draw a  
                 // border inside the circlePanel. 
-                if (this.colorValue == ColorEnum.Czerwony)
+                //if (this.colorValue == ColorEnum.Czerwony)
                 {
                     gRed.DrawRectangle(
                         Pens.Red,
@@ -93,7 +82,7 @@ namespace WindowsFormsApp
                         this.redPanel.Height - 1);
                 }
 
-                if (this.colorValue == ColorEnum.Niebieski)
+                //if (this.colorValue == ColorEnum.Niebieski)
                 {
                     gBlue.DrawRectangle(
                         Pens.Blue,
