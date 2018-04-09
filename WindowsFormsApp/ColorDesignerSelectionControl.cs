@@ -53,44 +53,34 @@ namespace WindowsFormsApp
         {
             base.OnPaint(e);
 
-            using (
-                Graphics gGreen = this.greenPanel.CreateGraphics(),
-                gRed = this.redPanel.CreateGraphics(),
-                gBlue = this.bluePanel.CreateGraphics())
+            using (Graphics gBlue = this.bluePanel.CreateGraphics(),
+                gGreen = this.greenPanel.CreateGraphics(),
+                gRed = this.redPanel.CreateGraphics())
+
             {
-                // If the Square option has been selected, draw a  
-                // border inside the squarePanel. 
-                //if (this.colorValue == ColorEnum.Zielony)
-                {
-                    gGreen.DrawRectangle(
-                        Pens.Green,
-                        0,
-                        0,
-                        this.greenPanel.Width - 1,
-                        this.greenPanel.Height - 1);
-                }
-
-                // If the Circle option has been selected, draw a  
-                // border inside the circlePanel. 
-                //if (this.colorValue == ColorEnum.Czerwony)
-                {
-                    gRed.DrawRectangle(
-                        Pens.Red,
-                        0,
-                        0,
-                        this.redPanel.Width - 1,
-                        this.redPanel.Height - 1);
-                }
-
-                //if (this.colorValue == ColorEnum.Niebieski)
-                {
-                    gBlue.DrawRectangle(
-                        Pens.Blue,
-                        0,
-                        0,
-                        this.bluePanel.Width - 1,
-                        this.bluePanel.Height - 1);
-                }
+                SolidBrush brush = new SolidBrush(Color.Ivory);
+                /*gGreen.FillRectangle(
+                Brushes.Green,
+                0, 0,
+                this.greenPanel.Width,
+                this.greenPanel.Height
+                );*/
+                gGreen.DrawString(ColorEnum.Zielony.ToString(),
+                     this.greenPanel.Font, brush,
+                    0, 0);
+                /*gRed.FillRectangle(
+                Brushes.Red,
+                0, 0,
+                this.redPanel.Width,
+                this.redPanel.Height
+                );*/
+                gRed.DrawString(ColorEnum.Czerwony.ToString(),
+                    this.redPanel.Font, brush,
+                    0, 0);
+                gBlue.DrawString(ColorEnum.Niebieski.ToString(),
+                    this.bluePanel.Font, brush,
+                    0, 0);
+                brush.Dispose();
             }
         }
 
@@ -166,22 +156,28 @@ namespace WindowsFormsApp
             public override void PaintValue(PaintValueEventArgs e)
             {
                 ColorEnum shape = (ColorEnum)e.Value;
+                Brush b = Brushes.Violet;
                 Pen p = Pens.Violet;
                 {
                     switch (shape)
                     {
                         case ColorEnum.Zielony:
+                            b = Brushes.Green;
                             p = Pens.Green;
                             break;
                         case ColorEnum.Czerwony:
+                            b = Brushes.Red;
                             p = Pens.Red;
                             break;
                         case ColorEnum.Niebieski:
+                            b = Brushes.Blue;
                             p = Pens.Blue;
                             break;
                     }
                     e.Graphics.DrawRectangle(p, e.Bounds);
+                    //e.Graphics.FillRectangle(b, e.Bounds);
                     p.Dispose();
+                    b.Dispose();
                 }
             }
         }

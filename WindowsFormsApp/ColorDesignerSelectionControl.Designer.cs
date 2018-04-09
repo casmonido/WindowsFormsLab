@@ -38,31 +38,34 @@ namespace WindowsFormsApp
         /// </summary> 
         private void InitializeComponent()
         {
-            this.greenPanel = new System.Windows.Forms.Panel();
-            this.redPanel = new System.Windows.Forms.Panel();
+            this.components = new System.ComponentModel.Container();
             this.bluePanel = new System.Windows.Forms.Panel();
+            this.redPanel = new System.Windows.Forms.Panel();
+            this.greenPanel = new System.Windows.Forms.Panel();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
-            // greenPanel
+            // bluePanel
             // 
-            this.greenPanel.Location = new System.Drawing.Point(8, 10);
-            this.greenPanel.Name = "greenPanel";
-            this.greenPanel.Size = new System.Drawing.Size(60, 60);
-            this.greenPanel.TabIndex = 2;
+            this.bluePanel.Location = new System.Drawing.Point(8, 55);
+            this.bluePanel.Name = "bluePanel";
+            this.bluePanel.Size = new System.Drawing.Size(60, 20);
+            this.bluePanel.TabIndex = 5;
             // 
             // redPanel
             // 
-            this.redPanel.Location = new System.Drawing.Point(8, 76);
+            this.redPanel.Location = new System.Drawing.Point(8, 29);
             this.redPanel.Name = "redPanel";
-            this.redPanel.Size = new System.Drawing.Size(60, 60);
+            this.redPanel.Size = new System.Drawing.Size(60, 20);
             this.redPanel.TabIndex = 4;
             // 
-            // panel1
+            // greenPanel
             // 
-            this.bluePanel.Location = new System.Drawing.Point(8, 142);
-            this.bluePanel.Name = "bluePanel";
-            this.bluePanel.Size = new System.Drawing.Size(60, 60);
-            this.bluePanel.TabIndex = 5;
+            this.greenPanel.Location = new System.Drawing.Point(8, 3);
+            this.greenPanel.Name = "greenPanel";
+            this.greenPanel.Size = new System.Drawing.Size(60, 20);
+            this.greenPanel.TabIndex = 2;
             // 
             // ColorDesignerSelectionControl
             // 
@@ -70,14 +73,17 @@ namespace WindowsFormsApp
             this.Controls.Add(this.redPanel);
             this.Controls.Add(this.greenPanel);
             this.Name = "ColorDesignerSelectionControl";
-            this.Size = new System.Drawing.Size(75, 209);
+            this.Size = new System.Drawing.Size(75, 78);
             this.Load += new System.EventHandler(this.ColorDesignerSelectionControl_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
         #endregion
-        private System.Windows.Forms.Panel greenPanel;
-        private System.Windows.Forms.Panel redPanel;
+
         private System.Windows.Forms.Panel bluePanel;
+        private System.Windows.Forms.Panel redPanel;
+        private System.Windows.Forms.Panel greenPanel;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }

@@ -46,8 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AngleEditor.cs" />
-    <Compile Include="DropDownListProperty.cs" />
     <Compile Include="ColorUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
