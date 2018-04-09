@@ -16,7 +16,7 @@ namespace WindowsFormsApp
 
         [Category("Color picker")]
         [Browsable(true)]
-        [EditorAttribute(typeof(ColorDesignerSelectionControl.LightShapeEditor),
+        [EditorAttribute(typeof(ColorDesignerSelectionControl.ColorEditor),
         typeof(System.Drawing.Design.UITypeEditor))]
         public ColorEnum Kolor
         {
@@ -28,6 +28,20 @@ namespace WindowsFormsApp
             set
             {
                 this.colorVal = value;
+                comboBox.SelectedItem = colorVal.ToString();
+                button.Text = colorVal.ToString();
+                switch (colorVal)
+                {
+                    case ColorEnum.Czerwony:
+                        button.BackColor = Color.Red;
+                        break;
+                    case ColorEnum.Zielony:
+                        button.BackColor = Color.Green;
+                        break;
+                    case ColorEnum.Niebieski:
+                        button.BackColor = Color.Blue;
+                        break;
+                }
             }
         }
 
@@ -43,12 +57,43 @@ namespace WindowsFormsApp
 
         private void button_Click(object sender, EventArgs e)
         {
-            button.BackColor = Color.Blue;
+            switch (colorVal)
+            {
+                case ColorEnum.Czerwony:
+                    colorVal = ColorEnum.Zielony;
+                    button.BackColor = Color.Green;
+                    break;
+                case ColorEnum.Zielony:
+                    colorVal = ColorEnum.Niebieski;
+                    button.BackColor = Color.Blue;
+                    break;
+                case ColorEnum.Niebieski:
+                    colorVal = ColorEnum.Czerwony;
+                    button.BackColor = Color.Red;
+                    break;
+            }
+            comboBox.SelectedItem = colorVal.ToString();
+            button.Text = colorVal.ToString();
         }
 
         private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            ColorEnum colorV;
+            Enum.TryParse<ColorEnum>(comboBox.SelectedItem.ToString(), out colorV);
+            switch (colorV)
+            {
+                case ColorEnum.Czerwony:
+                    button.BackColor = Color.Red;
+                    break;
+                case ColorEnum.Zielony:
+                    button.BackColor = Color.Green;
+                    break;
+                case ColorEnum.Niebieski:
+                    button.BackColor = Color.Blue;
+                    break;
+            }
+            colorVal = colorV;
+            button.Text = colorVal.ToString();
         }
     }
 }

@@ -110,7 +110,7 @@ namespace WindowsFormsApp
         // to be changed at design time using a customized UI element 
         // that is invoked by the Properties window. The UI is provided 
         // by the LightShapeSelectionControl class. 
-        internal class LightShapeEditor : UITypeEditor
+        internal class ColorEditor : UITypeEditor
         {
             IWindowsFormsEditorService editorService;
             public override UITypeEditorEditStyle GetEditStyle(
