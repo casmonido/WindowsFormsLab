@@ -12,13 +12,13 @@ namespace WindowsFormsApp
 {
     public partial class ColorUserControl : UserControl
     {
-        private MarqueeLightShape lightShapeValue;
+        private ColorEnum lightShapeValue;
 
-        [Category("Marquee")]
+        [Category("Color picker")]
         [Browsable(true)]
-        [EditorAttribute(typeof(LightShapeSelectionControl.LightShapeEditor),
+        [EditorAttribute(typeof(ColorDesignerSelectionControl.LightShapeEditor),
         typeof(System.Drawing.Design.UITypeEditor))]
-        public MarqueeLightShape LightShape
+        public ColorEnum LightShape
         {
             get
             {

@@ -12,6 +12,7 @@ using System.Drawing.Design;
 
 namespace WindowsFormsApp
 {
+    /*
     public partial class AngleEditor : System.Drawing.Design.UITypeEditor
     {
         IWindowsFormsEditorService _service;
@@ -95,4 +96,5 @@ namespace WindowsFormsApp
             return UITypeEditorEditStyle.DropDown;
         }
     }
+    */
 }

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp
 {
-    public enum MarqueeLightShape
+    public enum ColorEnum
     {
-        Square,
-        Circle
+        Czerwony,
+        Niebieski,
+        Zielony
     }
 }

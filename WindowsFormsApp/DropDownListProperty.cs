@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp
 {
-
+    /*
     [Editor(typeof(AngleEditor), typeof(System.Drawing.Design.UITypeEditor))]
     public class DropDownListProperty
     {
@@ -62,4 +62,5 @@ namespace WindowsFormsApp
             return SelectedItem;
         }
     }
+    */
 }

@@ -54,13 +54,13 @@
     <Compile Include="ColorUserControl.Designer.cs">
       <DependentUpon>ColorUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="LightShapeSelectionControl.cs">
+    <Compile Include="ColorDesignerSelectionControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LightShapeSelectionControl.Designer.cs">
-      <DependentUpon>LightShapeSelectionControl.cs</DependentUpon>
+    <Compile Include="ColorDesignerSelectionControl.Designer.cs">
+      <DependentUpon>ColorDesignerSelectionControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="MarqueeLightShape.cs" />
+    <Compile Include="ColorEnum.cs" />
     <Compile Include="RefreshableForm.cs" />
     <Compile Include="WspolrzedneSrodka.cs" />
     <Compile Include="Figura.cs" />
@@ -90,8 +90,8 @@
     <EmbeddedResource Include="Detail.resx">
       <DependentUpon>Detail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LightShapeSelectionControl.resx">
-      <DependentUpon>LightShapeSelectionControl.cs</DependentUpon>
+    <EmbeddedResource Include="ColorDesignerSelectionControl.resx">
+      <DependentUpon>ColorDesignerSelectionControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Lista.resx">
       <DependentUpon>Lista.cs</DependentUpon>

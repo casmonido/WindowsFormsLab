@@ -14,20 +14,19 @@ namespace WindowsFormsApp
 {
     // This control provides the custom UI for the LightShape property 
     // of the MarqueeBorder. It is used by the LightShapeEditor. 
-    public partial class LightShapeSelectionControl : System.Windows.Forms.UserControl
+    public partial class ColorDesignerSelectionControl : System.Windows.Forms.UserControl
     {
-        private MarqueeLightShape lightShapeValue = MarqueeLightShape.Square;
+        private ColorEnum colorValue = ColorEnum.Czerwony;
         private IWindowsFormsEditorService editorService = null;
-        private System.Windows.Forms.Panel squarePanel;
-        private System.Windows.Forms.Panel circlePanel;
-
-
-
+        private System.Windows.Forms.Panel greenPanel;
+        private System.Windows.Forms.Panel redPanel;
+        private System.Windows.Forms.Panel bluePanel;
+        
         // This constructor takes a MarqueeLightShape value from the 
         // design-time environment, which will be used to display 
         // the initial state. 
-        public LightShapeSelectionControl(
-            MarqueeLightShape lightShape,
+        public ColorDesignerSelectionControl(
+            ColorEnum colorVal,
             IWindowsFormsEditorService editorService)
         {
             // This call is required by the designer.
@@ -35,30 +34,31 @@ namespace WindowsFormsApp
 
             // Cache the light shape value provided by the  
             // design-time environment. 
-            this.lightShapeValue = lightShape;
+            this.colorValue = colorVal;
 
             // Cache the reference to the editor service. 
             this.editorService = editorService;
 
             // Handle the Click event for the two panels.  
-            this.squarePanel.Click += new EventHandler(squarePanel_Click);
-            this.circlePanel.Click += new EventHandler(circlePanel_Click);
+            this.greenPanel.Click += new EventHandler(greenPanel_Click);
+            this.redPanel.Click += new EventHandler(redPanel_Click);
+            this.bluePanel.Click += new EventHandler(bluePanel_Click);
         }
 
-        // LightShape is the property for which this control provides 
+        // the property for which this control provides 
         // a custom user interface in the Properties window. 
-        public MarqueeLightShape LightShape
+        public ColorEnum Kolor 
         {
             get
             {
-                return this.lightShapeValue;
+                return this.colorValue;
             }
 
             set
             {
-                if (this.lightShapeValue != value)
+                if (this.colorValue != value)
                 {
-                    this.lightShapeValue = value;
+                    this.colorValue = value;
                 }
             }
         }
@@ -68,71 +68,64 @@ namespace WindowsFormsApp
             base.OnPaint(e);
 
             using (
-                Graphics gSquare = this.squarePanel.CreateGraphics(),
-                gCircle = this.circlePanel.CreateGraphics())
+                Graphics gGreen = this.greenPanel.CreateGraphics(),
+                gRed = this.redPanel.CreateGraphics(),
+                gBlue = this.bluePanel.CreateGraphics())
             {
-                // Draw a filled square in the client area of 
-                // the squarePanel control.
-                gSquare.FillRectangle(
-                    Brushes.Red,
-                    0,
-                    0,
-                    this.squarePanel.Width,
-                    this.squarePanel.Height
-                    );
-
                 // If the Square option has been selected, draw a  
                 // border inside the squarePanel. 
-                if (this.lightShapeValue == MarqueeLightShape.Square)
+                if (this.colorValue == ColorEnum.Zielony)
                 {
-                    gSquare.DrawRectangle(
-                        Pens.Black,
+                    gGreen.DrawRectangle(
+                        Pens.Green,
                         0,
                         0,
-                        this.squarePanel.Width - 1,
-                        this.squarePanel.Height - 1);
+                        this.greenPanel.Width - 1,
+                        this.greenPanel.Height - 1);
                 }
-
-                // Draw a filled circle in the client area of 
-                // the circlePanel control.
-                gCircle.Clear(this.circlePanel.BackColor);
-                gCircle.FillEllipse(
-                    Brushes.Blue,
-                    0,
-                    0,
-                    this.circlePanel.Width,
-                    this.circlePanel.Height
-                    );
 
                 // If the Circle option has been selected, draw a  
                 // border inside the circlePanel. 
-                if (this.lightShapeValue == MarqueeLightShape.Circle)
+                if (this.colorValue == ColorEnum.Czerwony)
                 {
-                    gCircle.DrawRectangle(
-                        Pens.Black,
+                    gRed.DrawRectangle(
+                        Pens.Red,
                         0,
                         0,
-                        this.circlePanel.Width - 1,
-                        this.circlePanel.Height - 1);
+                        this.redPanel.Width - 1,
+                        this.redPanel.Height - 1);
+                }
+
+                if (this.colorValue == ColorEnum.Niebieski)
+                {
+                    gBlue.DrawRectangle(
+                        Pens.Blue,
+                        0,
+                        0,
+                        this.bluePanel.Width - 1,
+                        this.bluePanel.Height - 1);
                 }
             }
         }
 
-        private void squarePanel_Click(object sender, EventArgs e)
+        private void bluePanel_Click(object sender, EventArgs e)
         {
-            this.lightShapeValue = MarqueeLightShape.Square;
-
+            this.colorValue = ColorEnum.Niebieski;
             this.Invalidate(false);
-
             this.editorService.CloseDropDown();
         }
 
-        private void circlePanel_Click(object sender, EventArgs e)
+        private void redPanel_Click(object sender, EventArgs e)
         {
-            this.lightShapeValue = MarqueeLightShape.Circle;
-
+            this.colorValue = ColorEnum.Czerwony;
             this.Invalidate(false);
+            this.editorService.CloseDropDown();
+        }
 
+        private void greenPanel_Click(object sender, EventArgs e)
+        {
+            this.colorValue = ColorEnum.Zielony;
+            this.Invalidate(false);
             this.editorService.CloseDropDown();
         }
 
@@ -152,8 +145,7 @@ namespace WindowsFormsApp
 
             public override object EditValue(
                 ITypeDescriptorContext context,
-                IServiceProvider provider,
-                object value)
+                IServiceProvider provider, object value)
             {
                 if (provider != null)
                 {
@@ -162,17 +154,14 @@ namespace WindowsFormsApp
                         typeof(IWindowsFormsEditorService))
                         as IWindowsFormsEditorService;
                 }
-
                 if (editorService != null)
                 {
-                    LightShapeSelectionControl selectionControl =
-                        new LightShapeSelectionControl(
-                        (MarqueeLightShape)value,
+                    ColorDesignerSelectionControl selectionControl =
+                        new ColorDesignerSelectionControl(
+                        (ColorEnum)value,
                         editorService);
-
                     editorService.DropDownControl(selectionControl);
-
-                    value = selectionControl.LightShape;
+                    value = selectionControl.Kolor;
                 }
                 return value;
             }
@@ -190,20 +179,30 @@ namespace WindowsFormsApp
             // selected value of the LightShpae property. 
             public override void PaintValue(PaintValueEventArgs e)
             {
-                MarqueeLightShape shape = (MarqueeLightShape)e.Value;
-                using (Pen p = Pens.Black)
+                ColorEnum shape = (ColorEnum)e.Value;
+                Pen p = Pens.Violet;
                 {
-                    if (shape == MarqueeLightShape.Square)
+                    switch (shape)
                     {
-                        e.Graphics.DrawRectangle(p, e.Bounds);
+                        case ColorEnum.Zielony:
+                            p = Pens.Green;
+                            break;
+                        case ColorEnum.Czerwony:
+                            p = Pens.Red;
+                            break;
+                        case ColorEnum.Niebieski:
+                            p = Pens.Blue;
+                            break;
                     }
-                    else
-                    {
-                        e.Graphics.DrawEllipse(p, e.Bounds);
-                    }
+                    e.Graphics.DrawRectangle(p, e.Bounds);
+                    p.Dispose();
                 }
             }
         }
 
+        private void ColorDesignerSelectionControl_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

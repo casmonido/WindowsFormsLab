@@ -38,11 +38,11 @@
             this.typLabel = new System.Windows.Forms.Label();
             this.kolorLabel = new System.Windows.Forms.Label();
             this.detailTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.colorUserControl = new WindowsFormsApp.ColorUserControl();
-            this.etykietaTextBox = new System.Windows.Forms.TextBox();
-            this.poleTextBox = new System.Windows.Forms.TextBox();
-            this.wspolrzedneTextBox = new System.Windows.Forms.TextBox();
             this.typComboBox = new System.Windows.Forms.ComboBox();
+            this.wspolrzedneTextBox = new System.Windows.Forms.TextBox();
+            this.poleTextBox = new System.Windows.Forms.TextBox();
+            this.etykietaTextBox = new System.Windows.Forms.TextBox();
+            this.colorUserControl = new WindowsFormsApp.ColorUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.detailErrorProvider)).BeginInit();
             this.detailTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
@@ -146,42 +146,6 @@
             this.detailTableLayoutPanel.Size = new System.Drawing.Size(452, 146);
             this.detailTableLayoutPanel.TabIndex = 0;
             // 
-            // colorUserControl
-            // 
-            this.colorUserControl.CausesValidation = false;
-            //this.colorUserControl.Kolor = "Czerwony";
-            this.colorUserControl.Location = new System.Drawing.Point(130, 3);
-            this.colorUserControl.Name = "colorUserControl";
-            this.colorUserControl.Size = new System.Drawing.Size(251, 22);
-            this.colorUserControl.TabIndex = 10;
-            this.colorUserControl.Load += new System.EventHandler(this.colorUserControl_Load);
-            // 
-            // etykietaTextBox
-            // 
-            this.etykietaTextBox.Location = new System.Drawing.Point(130, 119);
-            this.etykietaTextBox.Name = "etykietaTextBox";
-            this.etykietaTextBox.Size = new System.Drawing.Size(185, 20);
-            this.etykietaTextBox.TabIndex = 4;
-            // 
-            // poleTextBox
-            // 
-            this.poleTextBox.Location = new System.Drawing.Point(130, 90);
-            this.poleTextBox.Name = "poleTextBox";
-            this.poleTextBox.Size = new System.Drawing.Size(121, 20);
-            this.poleTextBox.TabIndex = 3;
-            this.poleTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.poleTextBox_Validating);
-            this.poleTextBox.Validated += new System.EventHandler(this.poleTextBox_Validated);
-            // 
-            // wspolrzedneTextBox
-            // 
-            this.wspolrzedneTextBox.Location = new System.Drawing.Point(130, 61);
-            this.wspolrzedneTextBox.Name = "wspolrzedneTextBox";
-            this.wspolrzedneTextBox.Size = new System.Drawing.Size(121, 20);
-            this.wspolrzedneTextBox.TabIndex = 2;
-            this.wspolrzedneTextBox.TextChanged += new System.EventHandler(this.wspolrzedneTextBox_TextChanged);
-            this.wspolrzedneTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.wspolrzedneTextBox_Validating);
-            this.wspolrzedneTextBox.Validated += new System.EventHandler(this.wspolrzedneTextBox_Validated);
-            // 
             // typComboBox
             // 
             this.typComboBox.FormattingEnabled = true;
@@ -194,6 +158,42 @@
             this.typComboBox.TabIndex = 1;
             this.typComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.typComboBox_Validating);
             this.typComboBox.Validated += new System.EventHandler(this.typComboBox_Validated);
+            // 
+            // wspolrzedneTextBox
+            // 
+            this.wspolrzedneTextBox.Location = new System.Drawing.Point(130, 61);
+            this.wspolrzedneTextBox.Name = "wspolrzedneTextBox";
+            this.wspolrzedneTextBox.Size = new System.Drawing.Size(121, 20);
+            this.wspolrzedneTextBox.TabIndex = 2;
+            this.wspolrzedneTextBox.TextChanged += new System.EventHandler(this.wspolrzedneTextBox_TextChanged);
+            this.wspolrzedneTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.wspolrzedneTextBox_Validating);
+            this.wspolrzedneTextBox.Validated += new System.EventHandler(this.wspolrzedneTextBox_Validated);
+            // 
+            // poleTextBox
+            // 
+            this.poleTextBox.Location = new System.Drawing.Point(130, 90);
+            this.poleTextBox.Name = "poleTextBox";
+            this.poleTextBox.Size = new System.Drawing.Size(121, 20);
+            this.poleTextBox.TabIndex = 3;
+            this.poleTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.poleTextBox_Validating);
+            this.poleTextBox.Validated += new System.EventHandler(this.poleTextBox_Validated);
+            // 
+            // etykietaTextBox
+            // 
+            this.etykietaTextBox.Location = new System.Drawing.Point(130, 119);
+            this.etykietaTextBox.Name = "etykietaTextBox";
+            this.etykietaTextBox.Size = new System.Drawing.Size(185, 20);
+            this.etykietaTextBox.TabIndex = 4;
+            // 
+            // colorUserControl
+            // 
+            this.colorUserControl.CausesValidation = false;
+            this.colorUserControl.LightShape = WindowsFormsApp.ColorEnum.Czerwony;
+            this.colorUserControl.Location = new System.Drawing.Point(130, 3);
+            this.colorUserControl.Name = "colorUserControl";
+            this.colorUserControl.Size = new System.Drawing.Size(251, 22);
+            this.colorUserControl.TabIndex = 10;
+            this.colorUserControl.Load += new System.EventHandler(this.colorUserControl_Load);
             // 
             // Detail
             // 
