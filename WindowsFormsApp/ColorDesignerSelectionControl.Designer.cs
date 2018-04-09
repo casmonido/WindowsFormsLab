@@ -40,33 +40,44 @@ namespace WindowsFormsApp
         {
             this.greenPanel = new System.Windows.Forms.Panel();
             this.redPanel = new System.Windows.Forms.Panel();
+            this.bluePanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // squarePanel
+            // greenPanel
             // 
             this.greenPanel.Location = new System.Drawing.Point(8, 10);
-            this.greenPanel.Name = "squarePanel";
+            this.greenPanel.Name = "greenPanel";
             this.greenPanel.Size = new System.Drawing.Size(60, 60);
             this.greenPanel.TabIndex = 2;
             // 
-            // circlePanel
+            // redPanel
             // 
-            this.redPanel.Location = new System.Drawing.Point(80, 10);
-            this.redPanel.Name = "circlePanel";
+            this.redPanel.Location = new System.Drawing.Point(8, 76);
+            this.redPanel.Name = "redPanel";
             this.redPanel.Size = new System.Drawing.Size(60, 60);
-            this.redPanel.TabIndex = 3;
+            this.redPanel.TabIndex = 4;
+            // 
+            // panel1
+            // 
+            this.bluePanel.Location = new System.Drawing.Point(8, 142);
+            this.bluePanel.Name = "bluePanel";
+            this.bluePanel.Size = new System.Drawing.Size(60, 60);
+            this.bluePanel.TabIndex = 5;
             // 
             // ColorDesignerSelectionControl
             // 
-            this.Controls.Add(this.greenPanel);
+            this.Controls.Add(this.bluePanel);
             this.Controls.Add(this.redPanel);
+            this.Controls.Add(this.greenPanel);
             this.Name = "ColorDesignerSelectionControl";
-            this.Size = new System.Drawing.Size(150, 80);
+            this.Size = new System.Drawing.Size(75, 209);
             this.Load += new System.EventHandler(this.ColorDesignerSelectionControl_Load);
             this.ResumeLayout(false);
 
         }
         #endregion
-
+        private System.Windows.Forms.Panel greenPanel;
+        private System.Windows.Forms.Panel redPanel;
+        private System.Windows.Forms.Panel bluePanel;
     }
 }

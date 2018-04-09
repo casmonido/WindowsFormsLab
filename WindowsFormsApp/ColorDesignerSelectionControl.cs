@@ -18,9 +18,6 @@ namespace WindowsFormsApp
     {
         private ColorEnum colorValue = ColorEnum.Czerwony;
         private IWindowsFormsEditorService editorService = null;
-        private System.Windows.Forms.Panel greenPanel;
-        private System.Windows.Forms.Panel redPanel;
-        private System.Windows.Forms.Panel bluePanel;
         
         // This constructor takes a MarqueeLightShape value from the 
         // design-time environment, which will be used to display 
