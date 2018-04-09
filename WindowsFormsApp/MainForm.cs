@@ -21,6 +21,7 @@ namespace WindowsFormsApp
             LayoutMdi(MdiLayout.Cascade);
             this.MdiChildActivate += MdiChildActiveChanged;
             this.FormClosing += ThisFrame_FormClosing;
+            otworzListe();
         }
 
         private void MdiChildActiveChanged(object sender, EventArgs e)
@@ -33,11 +34,14 @@ namespace WindowsFormsApp
             toolStripStatusLabel.Text = 
                 ((RefreshableForm)ActiveMdiChild).DisplayedListSize().ToString();
             ((RefreshableForm)ActiveMdiChild).ListItemsCount += MdiChildActiveChanged;
-
-
         }
 
         private void otworzListeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            otworzListe();
+        }
+
+        private void otworzListe()
         {
             Lista lista = new Lista(ref listaFigur);
             widoki.Add(lista);

@@ -20,7 +20,19 @@ namespace WindowsFormsApp
         {
             reflist = list;
             InitializeComponent();
+            this.Activated += new EventHandler(FrmChild_Activated);
+            this.Deactivate += new EventHandler(FrmChild_Deactivate);
             refresh();
+        }
+
+        void FrmChild_Deactivate(object sender, EventArgs e)
+        {
+            menuToolStripMenuItem.Visible = false;
+        }
+
+        void FrmChild_Activated(object sender, EventArgs e)
+        {
+            menuToolStripMenuItem.Visible = true;
         }
 
         private void refresh()

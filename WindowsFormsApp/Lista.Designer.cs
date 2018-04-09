@@ -60,11 +60,13 @@
             // 
             // menuToolStripMenuItem
             // 
+            this.menuToolStripMenuItem.AutoToolTip = true;
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dodajToolStripMenuItem,
             this.modyfikujToolStripMenuItem,
             this.usuńToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            this.menuToolStripMenuItem.ShowShortcutKeys = false;
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
             this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click);
@@ -72,21 +74,21 @@
             // dodajToolStripMenuItem
             // 
             this.dodajToolStripMenuItem.Name = "dodajToolStripMenuItem";
-            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dodajToolStripMenuItem.Text = "Dodaj";
             this.dodajToolStripMenuItem.Click += new System.EventHandler(this.dodajToolStripMenuItem_Click);
             // 
             // modyfikujToolStripMenuItem
             // 
             this.modyfikujToolStripMenuItem.Name = "modyfikujToolStripMenuItem";
-            this.modyfikujToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.modyfikujToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modyfikujToolStripMenuItem.Text = "Modyfikuj";
             this.modyfikujToolStripMenuItem.Click += new System.EventHandler(this.modyfikujToolStripMenuItem_Click);
             // 
             // usuńToolStripMenuItem
             // 
             this.usuńToolStripMenuItem.Name = "usuńToolStripMenuItem";
-            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuńToolStripMenuItem.Text = "Usuń";
             this.usuńToolStripMenuItem.Click += new System.EventHandler(this.usunToolStripMenuItem_Click);
             // 
@@ -152,7 +154,7 @@
             this.topTableLayoutPanel.ColumnCount = 3;
             this.topTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.topTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.topTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
+            this.topTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             this.topTableLayoutPanel.Controls.Add(this.filtrLowerCheckBox, 0, 0);
             this.topTableLayoutPanel.Controls.Add(this.filtrUpperCheckBox, 1, 0);
             this.topTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
