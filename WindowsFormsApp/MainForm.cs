@@ -20,7 +20,6 @@ namespace WindowsFormsApp
             InitializeComponent();
             LayoutMdi(MdiLayout.Cascade);
             this.MdiChildActivate += MdiChildActiveChanged;
-            this.FormClosing += ThisFrame_FormClosing;
             otworzListe();
         }
 
@@ -40,7 +39,6 @@ namespace WindowsFormsApp
                     srce.Items.RemoveAt(0);
                     dest.Items.Add(item);
                 }
-                dest.Visible = true;
             }
             mPrevChild = this.ActiveMdiChild;
             if (mPrevChild != null)
@@ -76,16 +74,13 @@ namespace WindowsFormsApp
             lista.Show();
         }
 
-        private void ThisFrame_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            widoki.Clear();
-            e.Cancel = false;
-            return;
-        }
-
-
         private void Frame_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (e.CloseReason.Equals(CloseReason.MdiFormClosing))
+            {
+                widoki.Remove((RefreshableForm)sender);
+                return;
+            }
             if (widoki.Count == 1)
             {
                 e.Cancel = true;
