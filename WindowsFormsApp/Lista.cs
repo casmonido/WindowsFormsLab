@@ -13,8 +13,7 @@ namespace WindowsFormsApp
     public partial class Lista : Form, RefreshableForm
     {
         List<Figura> reflist;
-        
-        public event EventHandler ListItemsCount;
+        private event EventHandler ListItemsCount;
 
         public Lista(ref List<Figura> list)
         {
@@ -22,11 +21,11 @@ namespace WindowsFormsApp
             InitializeComponent();
             this.Activated += new EventHandler(FrmChild_Activated);
             this.Deactivate += new EventHandler(FrmChild_Deactivate);
-            this.ListItemsCount += MdiChildActiveChanged;
+            this.ListItemsCount += ChangeStatusStripText;
             refresh();
         }
 
-        private void MdiChildActiveChanged(object sender, EventArgs e)
+        private void ChangeStatusStripText(object sender, EventArgs e)
         {
             toolStripStatusLabel.Text =
                 this.DisplayedListSize().ToString();
@@ -35,11 +34,15 @@ namespace WindowsFormsApp
         void FrmChild_Deactivate(object sender, EventArgs e)
         {
             menuToolStripMenuItem.Visible = false;
+            toolStripStatusLabel.Visible = false;
+            statusStrip.Visible = false;
         }
 
         void FrmChild_Activated(object sender, EventArgs e)
         {
             menuToolStripMenuItem.Visible = true;
+            toolStripStatusLabel.Visible = true;
+            statusStrip.Visible = true;
         }
 
         private void refresh()

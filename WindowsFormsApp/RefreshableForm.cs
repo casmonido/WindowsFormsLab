@@ -8,12 +8,6 @@ namespace WindowsFormsApp
 {
     public interface RefreshableForm
     {
-        //void refresh(ref List<Figura> list);
-        //void refresh();
-        event EventHandler ListItemsCount;
-
-        int DisplayedListSize();
-
         void refreshInsert(Figura d);
 
         void refreshDelete(Figura d);
