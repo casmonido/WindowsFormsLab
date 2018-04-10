@@ -102,7 +102,7 @@ namespace WindowsFormsApp
 
         }
 
-        public void dodajFigure(ColorEnum kolor, string typ,
+        public void dodajFigure(ColorEnum kolor, ShapeEnum typ,
                     WspolrzedneSrodka wspolrzedne, string pole, string etykieta)
         {
             Figura nowa = new Figura(kolor, typ, double.Parse(pole), wspolrzedne, etykieta);
@@ -111,7 +111,7 @@ namespace WindowsFormsApp
                 f.refreshInsert(nowa);
         }
 
-        public void edytujFigure(Figura tag, ColorEnum kolor, string typ,
+        public void edytujFigure(Figura tag, ColorEnum kolor, ShapeEnum typ,
                     WspolrzedneSrodka wspolrzedne, string pole, string etykieta)
         {
             foreach (Figura f in listaFigur)

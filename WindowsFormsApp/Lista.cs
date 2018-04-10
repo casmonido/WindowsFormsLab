@@ -61,7 +61,7 @@ namespace WindowsFormsApp
         {
             ListViewItem lvi = new ListViewItem(d.Kolor.ToString());
             lvi.Tag = d;
-            lvi.SubItems.Add(d.Typ);
+            lvi.SubItems.Add(d.Typ.ToString());
             lvi.SubItems.Add(d.WspolrzedneSrodka.toString());
             lvi.SubItems.Add(d.Pole.ToString());
             lvi.SubItems.Add(d.Etykieta);
@@ -71,7 +71,7 @@ namespace WindowsFormsApp
         private void modifyFigureOnList(ListViewItem f, Figura d)
         {
             f.SubItems[0].Text = d.Kolor.ToString();
-            f.SubItems[1].Text = d.Typ;
+            f.SubItems[1].Text = d.Typ.ToString();
             f.SubItems[2].Text = d.WspolrzedneSrodka.toString();
             f.SubItems[3].Text = d.Pole.ToString();
             f.SubItems[4].Text = d.Etykieta;

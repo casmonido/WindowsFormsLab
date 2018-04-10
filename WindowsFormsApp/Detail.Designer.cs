@@ -41,12 +41,12 @@
             this.typComboBox = new System.Windows.Forms.ComboBox();
             this.poleTextBox = new System.Windows.Forms.TextBox();
             this.etykietaTextBox = new System.Windows.Forms.TextBox();
+            this.colorUserControl = new WindowsFormsApp.ColorUserControl();
             this.wspolrzedneTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.xlabel = new System.Windows.Forms.Label();
             this.ylabel = new System.Windows.Forms.Label();
             this.xtextBox = new System.Windows.Forms.TextBox();
             this.ytextBox = new System.Windows.Forms.TextBox();
-            this.colorUserControl = new WindowsFormsApp.ColorUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.detailErrorProvider)).BeginInit();
             this.detailTableLayoutPanel.SuspendLayout();
             this.wspolrzedneTableLayoutPanel.SuspendLayout();
@@ -154,7 +154,8 @@
             this.typComboBox.FormattingEnabled = true;
             this.typComboBox.Items.AddRange(new object[] {
             "Trójkąt",
-            "Prostokąt"});
+            "Kwadrat",
+            "Koło"});
             this.typComboBox.Location = new System.Drawing.Point(130, 32);
             this.typComboBox.Name = "typComboBox";
             this.typComboBox.Size = new System.Drawing.Size(121, 21);
@@ -177,6 +178,16 @@
             this.etykietaTextBox.Name = "etykietaTextBox";
             this.etykietaTextBox.Size = new System.Drawing.Size(185, 20);
             this.etykietaTextBox.TabIndex = 4;
+            // 
+            // colorUserControl
+            // 
+            this.colorUserControl.CausesValidation = false;
+            this.colorUserControl.Kolor = WindowsFormsApp.ColorEnum.Zielony;
+            this.colorUserControl.Location = new System.Drawing.Point(130, 3);
+            this.colorUserControl.Name = "colorUserControl";
+            this.colorUserControl.Size = new System.Drawing.Size(251, 22);
+            this.colorUserControl.TabIndex = 10;
+            this.colorUserControl.Load += new System.EventHandler(this.colorUserControl_Load);
             // 
             // wspolrzedneTableLayoutPanel
             // 
@@ -226,6 +237,8 @@
             this.xtextBox.Name = "xtextBox";
             this.xtextBox.Size = new System.Drawing.Size(40, 20);
             this.xtextBox.TabIndex = 2;
+            this.xtextBox.Validating += new System.ComponentModel.CancelEventHandler(this.wspolrzednaX_Validating);
+            this.xtextBox.Validated += new System.EventHandler(this.wspolrzednaX_Validated);
             // 
             // ytextBox
             // 
@@ -233,16 +246,8 @@
             this.ytextBox.Name = "ytextBox";
             this.ytextBox.Size = new System.Drawing.Size(40, 20);
             this.ytextBox.TabIndex = 3;
-            // 
-            // colorUserControl
-            // 
-            this.colorUserControl.CausesValidation = false;
-            this.colorUserControl.Kolor = WindowsFormsApp.ColorEnum.Zielony;
-            this.colorUserControl.Location = new System.Drawing.Point(130, 3);
-            this.colorUserControl.Name = "colorUserControl";
-            this.colorUserControl.Size = new System.Drawing.Size(251, 22);
-            this.colorUserControl.TabIndex = 10;
-            this.colorUserControl.Load += new System.EventHandler(this.colorUserControl_Load);
+            this.ytextBox.Validating += new System.ComponentModel.CancelEventHandler(this.wspolrzednaY_Validating);
+            this.ytextBox.Validated += new System.EventHandler(this.wspolrzednaY_Validated);
             // 
             // Detail
             // 

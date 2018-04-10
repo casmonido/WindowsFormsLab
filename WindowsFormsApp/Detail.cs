@@ -15,7 +15,7 @@ namespace WindowsFormsApp
         private ListViewItem listViewItem;
 
         public ColorEnum Kolor { get; set; }
-        public string Typ { get; set; }
+        public ShapeEnum Typ { get; set; }
         public string Etykieta { get; set; }
         public WspolrzedneSrodka Wspolrzedne { get; set; }
         public string Pole { get; set; }
@@ -31,7 +31,7 @@ namespace WindowsFormsApp
             ColorEnum en;
             Enum.TryParse<ColorEnum>(listViewItem.SubItems[0].Text, out en);
             colorUserControl.Kolor = en;
-            typComboBox.Text = f.Typ;
+            typComboBox.Text = f.Typ.ToString();
             xtextBox.Text = f.WspolrzedneSrodka.X.ToString();
             ytextBox.Text = f.WspolrzedneSrodka.Y.ToString();
             poleTextBox.Text = f.Pole.ToString();
@@ -41,7 +41,9 @@ namespace WindowsFormsApp
         private void copyToPublicAttributes()
         {
             this.Kolor = this.colorUserControl.Kolor;
-            this.Typ = this.typComboBox.SelectedItem.ToString();
+            ShapeEnum en;
+            Enum.TryParse<ShapeEnum>(this.typComboBox.SelectedItem.ToString(), out en);
+            this.Typ = en;
             this.Wspolrzedne = new WspolrzedneSrodka(this.xtextBox.Text, this.ytextBox.Text);
             this.Pole = this.poleTextBox.Text;
             this.Etykieta = this.etykietaTextBox.Text;
@@ -90,18 +92,52 @@ namespace WindowsFormsApp
             detailErrorProvider.SetError(typComboBox, "");
         }
 
-        /*private void wspolrzedne_Validating(object sender, CancelEventArgs e)
+        private void wspolrzednaY_Validating(object sender, CancelEventArgs e)
         {
-            if (wspolrzedneUserControl.Wspolrzedne != null
-                && wspolrzedneUserControl.WspolrzedneValidate())
-                return;
+            if (ytextBox.Text != null)
+            {
+                bool ok = true;
+                try
+                {
+                    int.Parse(ytextBox.Text);
+                }
+                catch
+                {
+                    ok = false;
+                }
+                if (ok)
+                    return;
+            }
             e.Cancel = true;
-            detailErrorProvider.SetError(wspolrzedneUserControl, "Uzupełnij położenie współrzędnych.");
+            detailErrorProvider.SetError(ytextBox, "Uzupełnij położenie współrzędnej (int).");
         }
-        private void wspolrzedne_Validated(object sender, EventArgs e)
+        private void wspolrzednaY_Validated(object sender, EventArgs e)
         {
-            detailErrorProvider.SetError(wspolrzedneUserControl, "");
-        }*/
+            detailErrorProvider.SetError(ytextBox, "");
+        }
+        private void wspolrzednaX_Validating(object sender, CancelEventArgs e)
+        {
+            if (xtextBox.Text != null)
+            {
+                bool ok = true; 
+                try
+                {
+                    int.Parse(xtextBox.Text);
+                }
+                catch
+                {
+                    ok = false;
+                }
+                if (ok)
+                    return;
+            }
+            e.Cancel = true;
+            detailErrorProvider.SetError(xtextBox, "Uzupełnij położenie współrzędnej (int).");
+        }
+        private void wspolrzednaX_Validated(object sender, EventArgs e)
+        {
+            detailErrorProvider.SetError(xtextBox, "");
+        }
 
         private void poleTextBox_Validating(object sender, CancelEventArgs e)
         {

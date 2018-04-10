@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="ColorEnum.cs" />
     <Compile Include="RefreshableForm.cs" />
+    <Compile Include="ShapeEnum.cs" />
     <Compile Include="WspolrzedneSrodka.cs" />
     <Compile Include="Figura.cs" />
     <Compile Include="Detail.cs">

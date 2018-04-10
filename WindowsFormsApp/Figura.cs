@@ -14,7 +14,7 @@ namespace WindowsFormsApp
             set;
         }
 
-        public string Typ
+        public ShapeEnum Typ
         {
             get;
             set;
@@ -38,7 +38,7 @@ namespace WindowsFormsApp
             set;
         }
 
-        public Figura(ColorEnum kolor, string typ, double pole, 
+        public Figura(ColorEnum kolor, ShapeEnum typ, double pole, 
             WspolrzedneSrodka wspolrzedne, string etykieta)
         {
             Kolor = kolor;
