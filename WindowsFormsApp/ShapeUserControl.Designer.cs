@@ -51,6 +51,7 @@
             this.label.Size = new System.Drawing.Size(40, 13);
             this.label.TabIndex = 1;
             this.label.Text = "Trójkąt";
+            this.label.Click += new System.EventHandler(this.label_Click);
             // 
             // ShapeUserControl
             // 

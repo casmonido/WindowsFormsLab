@@ -13,3 +13,4 @@ C:\Users\casmonido\source\repos\WindowsFormsApp\WindowsFormsApp\obj\Debug\Window
 C:\Users\casmonido\source\repos\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.ColorUserControl.resources
 C:\Users\casmonido\source\repos\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.ColorDesignerSelectionControl.resources
 C:\Users\casmonido\source\repos\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.ShapeUserControl.resources
+C:\Users\casmonido\source\repos\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.ShapeDesignerSelectionControl.resources

@@ -61,6 +61,12 @@
     <Compile Include="ColorEnum.cs" />
     <Compile Include="RefreshableForm.cs" />
     <Compile Include="ShapeChangedEventArgs.cs" />
+    <Compile Include="ShapeDesignerSelectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ShapeDesignerSelectionControl.Designer.cs">
+      <DependentUpon>ShapeDesignerSelectionControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ShapeEnum.cs" />
     <Compile Include="ShapeUserControl.cs">
       <SubType>UserControl</SubType>
@@ -115,6 +121,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ShapeDesignerSelectionControl.resx">
+      <DependentUpon>ShapeDesignerSelectionControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ShapeUserControl.resx">
       <DependentUpon>ShapeUserControl.cs</DependentUpon>
     </EmbeddedResource>

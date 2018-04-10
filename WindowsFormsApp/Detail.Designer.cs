@@ -242,6 +242,7 @@
             this.shapeUserControl.Name = "shapeUserControl";
             this.shapeUserControl.Size = new System.Drawing.Size(116, 23);
             this.shapeUserControl.TabIndex = 12;
+            this.shapeUserControl.Typ = WindowsFormsApp.ShapeEnum.Trójkąt;
             // 
             // Detail
             // 

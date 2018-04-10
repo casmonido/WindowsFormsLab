@@ -23,6 +23,10 @@ namespace WindowsFormsApp
         }
 
         private ShapeEnum shapeVal;
+        [Category("Custom properties")]
+        [Browsable(true)]
+        [EditorAttribute(typeof(ShapeDesignerSelectionControl.ShapeEditor),
+            typeof(System.Drawing.Design.UITypeEditor))]
         public ShapeEnum Typ
         {
             get
@@ -82,6 +86,11 @@ namespace WindowsFormsApp
         }
 
         private void ShapeUserControl_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_Click(object sender, EventArgs e)
         {
 
         }

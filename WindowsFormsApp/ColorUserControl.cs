@@ -14,7 +14,7 @@ namespace WindowsFormsApp
     {
         private ColorEnum colorVal;
 
-        [Category("Color picker")]
+        [Category("Custom properties")]
         [Browsable(true)]
         [EditorAttribute(typeof(ColorDesignerSelectionControl.ColorEditor),
         typeof(System.Drawing.Design.UITypeEditor))]
