@@ -14,6 +14,8 @@ namespace WindowsFormsApp
     {
         List<Figura> reflist;
         private event EventHandler ListItemsCount;
+        bool pow100 = true;
+        bool pon100 = true; 
 
         public Lista(ref List<Figura> list)
         {
@@ -22,6 +24,7 @@ namespace WindowsFormsApp
             this.Activated += new EventHandler(FrmChild_Activated);
             this.Deactivate += new EventHandler(FrmChild_Deactivate);
             this.ListItemsCount += ChangeStatusStripText;
+            toolStripComboBox1.SelectedItem = filtr[0];
             refresh();
         }
 
@@ -50,8 +53,8 @@ namespace WindowsFormsApp
             shapeList.Items.Clear();
             foreach (Figura d in reflist)
             {
-                if ((filtrLowerCheckBox.Checked && d.Pole < 100) ||
-                    (filtrUpperCheckBox.Checked && d.Pole >= 100))
+                if ((pon100 && d.Pole < 100) ||
+                    (pow100 && d.Pole >= 100))
                     addFigureToList(ref shapeList, d); //hurr
             }
             emitEvent();
@@ -79,8 +82,8 @@ namespace WindowsFormsApp
 
         public void refreshModify(Figura d)
         {
-            if ((filtrLowerCheckBox.Checked && d.Pole < 100) ||
-                    (filtrUpperCheckBox.Checked && d.Pole >= 100))
+            if ((pon100 && d.Pole < 100) ||
+                    (pow100 && d.Pole >= 100))
             {
                 foreach (ListViewItem f in shapeList.Items)
                     if (f.Tag == d)
@@ -109,8 +112,8 @@ namespace WindowsFormsApp
 
         public void refreshInsert(Figura d)
         {
-            if ((filtrLowerCheckBox.Checked && d.Pole < 100) ||
-                (filtrUpperCheckBox.Checked && d.Pole >= 100))
+            if ((pon100 && d.Pole < 100) ||
+                (pow100 && d.Pole >= 100))
                 addFigureToList(ref shapeList, d);
             emitEvent();
         }
@@ -187,6 +190,34 @@ namespace WindowsFormsApp
         }
 
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+        }
+
+        private string[] filtr = { "Wszystkie",
+            "Pokaż elementy do 100 pola",
+            "Pokaż elementy powyżej 100 pola"};
+        private void toolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string str = toolStripComboBox1.SelectedItem.ToString();
+            if (filtr[0].Equals(str))
+            {
+                pon100 = true;
+                pow100 = true;
+            }
+            if (filtr[1].Equals(str))
+            {
+                pon100 = true;
+                pow100 = false;
+            }
+            if (filtr[2].Equals(str))
+            {
+                pon100 = false;
+                pow100 = true;
+            }
+            refresh();
+        }
+
+        private void toolStripComboBox1_Click(object sender, EventArgs e)
         {
 
         }

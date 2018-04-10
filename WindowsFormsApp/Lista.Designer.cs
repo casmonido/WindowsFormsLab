@@ -33,6 +33,8 @@
             this.dodajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modyfikujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuńToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.shapeList = new System.Windows.Forms.ListView();
             this.Kolor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -40,15 +42,12 @@
             this.Wspolrzedne = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Pole = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Etykieta = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.topTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.filtrLowerCheckBox = new System.Windows.Forms.CheckBox();
-            this.filtrUpperCheckBox = new System.Windows.Forms.CheckBox();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.menuStrip1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.topTableLayoutPanel.SuspendLayout();
             this.statusStrip.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -57,7 +56,7 @@
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(590, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(471, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -95,19 +94,35 @@
             this.usuńToolStripMenuItem.Text = "Usuń";
             this.usuńToolStripMenuItem.Click += new System.EventHandler(this.usunToolStripMenuItem_Click);
             // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 216);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(471, 22);
+            this.statusStrip.TabIndex = 3;
+            this.statusStrip.Text = "statusStrip";
+            this.statusStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(62, 17);
+            this.toolStripStatusLabel.Text = "Elementy: ";
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.shapeList, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.topTableLayoutPanel, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 136F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(590, 163);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(471, 214);
             this.tableLayoutPanel1.TabIndex = 2;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -122,9 +137,9 @@
             this.shapeList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.shapeList.FullRowSelect = true;
             this.shapeList.GridLines = true;
-            this.shapeList.Location = new System.Drawing.Point(3, 30);
+            this.shapeList.Location = new System.Drawing.Point(3, 28);
             this.shapeList.Name = "shapeList";
-            this.shapeList.Size = new System.Drawing.Size(584, 130);
+            this.shapeList.Size = new System.Drawing.Size(465, 187);
             this.shapeList.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.shapeList.TabIndex = 4;
             this.shapeList.UseCompatibleStateImageBehavior = false;
@@ -152,70 +167,35 @@
             // 
             this.Etykieta.Text = "Etykieta";
             // 
-            // topTableLayoutPanel
+            // toolStripComboBox1
             // 
-            this.topTableLayoutPanel.ColumnCount = 3;
-            this.topTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.topTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.topTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
-            this.topTableLayoutPanel.Controls.Add(this.filtrLowerCheckBox, 0, 0);
-            this.topTableLayoutPanel.Controls.Add(this.filtrUpperCheckBox, 1, 0);
-            this.topTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.topTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
-            this.topTableLayoutPanel.Name = "topTableLayoutPanel";
-            this.topTableLayoutPanel.RowCount = 1;
-            this.topTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.topTableLayoutPanel.Size = new System.Drawing.Size(584, 21);
-            this.topTableLayoutPanel.TabIndex = 5;
+            this.toolStripComboBox1.CausesValidation = false;
+            this.toolStripComboBox1.Items.AddRange(new object[] {
+            "Wszystkie",
+            "Pokaż elementy do 100 pola",
+            "Pokaż elementy powyżej 100 pola"});
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
+            this.toolStripComboBox1.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox1_SelectedIndexChanged);
+            this.toolStripComboBox1.Click += new System.EventHandler(this.toolStripComboBox1_Click);
             // 
-            // filtrLowerCheckBox
+            // toolStrip1
             // 
-            this.filtrLowerCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.filtrLowerCheckBox.AutoSize = true;
-            this.filtrLowerCheckBox.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.filtrLowerCheckBox.Location = new System.Drawing.Point(42, 3);
-            this.filtrLowerCheckBox.Name = "filtrLowerCheckBox";
-            this.filtrLowerCheckBox.Size = new System.Drawing.Size(160, 15);
-            this.filtrLowerCheckBox.TabIndex = 1;
-            this.filtrLowerCheckBox.Text = "Pokaż elementy do 100 pola";
-            this.filtrLowerCheckBox.UseVisualStyleBackColor = true;
-            this.filtrLowerCheckBox.CheckedChanged += new System.EventHandler(this.filtrLowerCheckBox_CheckedChanged);
-            // 
-            // filtrUpperCheckBox
-            // 
-            this.filtrUpperCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.filtrUpperCheckBox.AutoSize = true;
-            this.filtrUpperCheckBox.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.filtrUpperCheckBox.Location = new System.Drawing.Point(273, 3);
-            this.filtrUpperCheckBox.Name = "filtrUpperCheckBox";
-            this.filtrUpperCheckBox.Size = new System.Drawing.Size(186, 15);
-            this.filtrUpperCheckBox.TabIndex = 2;
-            this.filtrUpperCheckBox.Text = "Pokaż elementy powyżej 100 pola";
-            this.filtrUpperCheckBox.UseVisualStyleBackColor = true;
-            this.filtrUpperCheckBox.CheckedChanged += new System.EventHandler(this.filtrUpperCheckBox_CheckedChanged);
-            // 
-            // statusStrip
-            // 
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 165);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(590, 22);
-            this.statusStrip.TabIndex = 3;
-            this.statusStrip.Text = "statusStrip";
-            this.statusStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
-            // 
-            // toolStripStatusLabel
-            // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(62, 17);
-            this.toolStripStatusLabel.Text = "Elementy: ";
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBox1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip1.Size = new System.Drawing.Size(471, 25);
+            this.toolStrip1.TabIndex = 8;
+            this.toolStrip1.Text = "toolStrip1";
             // 
             // Lista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 187);
+            this.ClientSize = new System.Drawing.Size(471, 238);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
@@ -225,11 +205,11 @@
             this.Load += new System.EventHandler(this.Lista_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.topTableLayoutPanel.ResumeLayout(false);
-            this.topTableLayoutPanel.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,17 +221,16 @@
         private System.Windows.Forms.ToolStripMenuItem dodajToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modyfikujToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuńToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ListView shapeList;
         private System.Windows.Forms.ColumnHeader Kolor;
         private System.Windows.Forms.ColumnHeader Typ;
         private System.Windows.Forms.ColumnHeader Wspolrzedne;
         private System.Windows.Forms.ColumnHeader Pole;
         private System.Windows.Forms.ColumnHeader Etykieta;
-        private System.Windows.Forms.TableLayoutPanel topTableLayoutPanel;
-        private System.Windows.Forms.CheckBox filtrLowerCheckBox;
-        private System.Windows.Forms.CheckBox filtrUpperCheckBox;
-        private System.Windows.Forms.StatusStrip statusStrip;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
     }
 }
