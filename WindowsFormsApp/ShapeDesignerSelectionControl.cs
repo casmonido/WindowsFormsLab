@@ -121,37 +121,29 @@ namespace WindowsFormsApp
             public override bool GetPaintValueSupported(
                 ITypeDescriptorContext context)
             {
-                return false;
+                return true;
             }
 
-            /*
             public override void PaintValue(PaintValueEventArgs e)
             {
-                ColorEnum shape = (ColorEnum)e.Value;
-                Brush b = Brushes.Violet;
-                Pen p = Pens.Violet;
+                ShapeEnum shape = (ShapeEnum)e.Value;
+                Pen p = Pens.Ivory;
                 {
                     switch (shape)
                     {
-                        case ColorEnum.Zielony:
-                            b = Brushes.Green;
-                            p = Pens.Green;
+                        case ShapeEnum.Koło:
+                            e.Graphics.DrawEllipse(p, e.Bounds);
                             break;
-                        case ColorEnum.Czerwony:
-                            b = Brushes.Red;
-                            p = Pens.Red;
+                        case ShapeEnum.Kwadrat:
+                            e.Graphics.DrawRectangle(p, e.Bounds);
                             break;
-                        case ColorEnum.Niebieski:
-                            b = Brushes.Blue;
-                            p = Pens.Blue;
+                        case ShapeEnum.Trójkąt:
+                            e.Graphics.DrawImage(global::WindowsFormsApp.Properties.Resources.triangle, e.Bounds);
                             break;
                     }
-                    e.Graphics.DrawRectangle(p, e.Bounds);
-                    //e.Graphics.FillRectangle(b, e.Bounds);
                     p.Dispose();
-                    b.Dispose();
                 }
-            }*/
+            }
         }
     }
 }

@@ -143,6 +143,11 @@ namespace WindowsFormsApp
         {
 
         }
+
+        private void shapeUserControl_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

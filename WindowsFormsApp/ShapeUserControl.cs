@@ -51,6 +51,7 @@ namespace WindowsFormsApp
                             Properties.Resources.sqare;
                         break;
                 }
+                OnValueChanged(new ShapeChangedEventArgs(shapeVal));
             }
         }
 
@@ -70,19 +71,18 @@ namespace WindowsFormsApp
             switch (shapeVal)
             {
                 case ShapeEnum.Koło:
-                    shapeVal = ShapeEnum.Trójkąt;
+                    Typ = ShapeEnum.Trójkąt;
                     button.BackgroundImage = global::WindowsFormsApp.Properties.Resources.triangle;
                     break;
                 case ShapeEnum.Trójkąt:
-                    shapeVal = ShapeEnum.Kwadrat;
+                    Typ = ShapeEnum.Kwadrat;
                     button.BackgroundImage = global::WindowsFormsApp.Properties.Resources.sqare;
                     break;
                 case ShapeEnum.Kwadrat:
-                    shapeVal = ShapeEnum.Koło;
+                    Typ = ShapeEnum.Koło;
                     button.BackgroundImage = global::WindowsFormsApp.Properties.Resources.circle;
                     break;
             }
-            OnValueChanged(new ShapeChangedEventArgs(shapeVal));
         }
 
         private void ShapeUserControl_Load(object sender, EventArgs e)
