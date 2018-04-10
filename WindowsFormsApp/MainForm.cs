@@ -24,16 +24,42 @@ namespace WindowsFormsApp
             otworzListe();
         }
 
+        private Form mPrevChild;
+
         private void MdiChildActiveChanged(object sender, EventArgs e)
         {
-            if (ActiveMdiChild == null)
+            //toolStripStatusLabel
+            if (mPrevChild != null && !mPrevChild.IsDisposed && this.statusStrip.Items.Count > 0)
             {
-                toolStripStatusLabel.Text = "";
-                return;
+                // Move them back
+                StatusStrip dest = (StatusStrip)mPrevChild.Controls["statusStrip"];
+                StatusStrip srce = this.statusStrip;
+                while (srce.Items.Count > 0)
+                {
+                    ToolStripItem item = srce.Items[0];
+                    srce.Items.RemoveAt(0);
+                    dest.Items.Add(item);
+                }
+                dest.Visible = true;
             }
-            toolStripStatusLabel.Text = 
-                ((RefreshableForm)ActiveMdiChild).DisplayedListSize().ToString();
-            ((RefreshableForm)ActiveMdiChild).ListItemsCount += MdiChildActiveChanged;
+            mPrevChild = this.ActiveMdiChild;
+            if (mPrevChild != null)
+            {
+                // Move status strip items from child to our status strip
+                StatusStrip srce = (StatusStrip)mPrevChild.Controls["statusStrip"];
+                StatusStrip dest = this.statusStrip;
+                if (srce != null)
+                {
+                    while (srce.Items.Count > 0)
+                    {
+                        ToolStripItem item = srce.Items[0];
+                        srce.Items.RemoveAt(0);
+                        dest.Items.Add(item);
+                    }
+                    srce.Visible = false;
+                }
+            }
+        
         }
 
         private void otworzListeToolStripMenuItem_Click(object sender, EventArgs e)

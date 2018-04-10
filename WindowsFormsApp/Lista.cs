@@ -22,7 +22,14 @@ namespace WindowsFormsApp
             InitializeComponent();
             this.Activated += new EventHandler(FrmChild_Activated);
             this.Deactivate += new EventHandler(FrmChild_Deactivate);
+            this.ListItemsCount += MdiChildActiveChanged;
             refresh();
+        }
+
+        private void MdiChildActiveChanged(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text =
+                this.DisplayedListSize().ToString();
         }
 
         void FrmChild_Deactivate(object sender, EventArgs e)
@@ -174,6 +181,11 @@ namespace WindowsFormsApp
         private void filtrLowerCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             refresh();
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
