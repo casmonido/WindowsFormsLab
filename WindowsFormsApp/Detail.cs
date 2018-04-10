@@ -14,10 +14,10 @@ namespace WindowsFormsApp
     {
         private ListViewItem listViewItem;
 
-        public string Kolor { get; set; }
+        public ColorEnum Kolor { get; set; }
         public string Typ { get; set; }
         public string Etykieta { get; set; }
-        public string Wspolrzedne { get; set; }
+        public WspolrzedneSrodka Wspolrzedne { get; set; }
         public string Pole { get; set; }
 
         public Detail()
@@ -27,23 +27,22 @@ namespace WindowsFormsApp
 
         private void copyToControls(ListViewItem listViewItem)
         {
+            Figura f = (Figura) listViewItem.Tag;
             ColorEnum en;
             Enum.TryParse<ColorEnum>(listViewItem.SubItems[0].Text, out en);
             colorUserControl.Kolor = en;
-            typComboBox.Text = listViewItem.SubItems[1].Text;
-            if (listViewItem.SubItems.Count >= 3)
-                wspolrzedneTextBox.Text = listViewItem.SubItems[2].Text;
-            if (listViewItem.SubItems.Count >= 4)
-                poleTextBox.Text = listViewItem.SubItems[3].Text;
-            if (listViewItem.SubItems.Count >= 5)
-                etykietaTextBox.Text = listViewItem.SubItems[4].Text;
+            typComboBox.Text = f.Typ;
+            xtextBox.Text = f.WspolrzedneSrodka.X.ToString();
+            ytextBox.Text = f.WspolrzedneSrodka.Y.ToString();
+            poleTextBox.Text = f.Pole.ToString();
+            etykietaTextBox.Text = f.Etykieta;
         }
 
         private void copyToPublicAttributes()
         {
-            this.Kolor = this.colorUserControl.Kolor.ToString();
+            this.Kolor = this.colorUserControl.Kolor;
             this.Typ = this.typComboBox.SelectedItem.ToString();
-            this.Wspolrzedne = this.wspolrzedneTextBox.Text;
+            this.Wspolrzedne = new WspolrzedneSrodka(this.xtextBox.Text, this.ytextBox.Text);
             this.Pole = this.poleTextBox.Text;
             this.Etykieta = this.etykietaTextBox.Text;
         }
@@ -79,19 +78,6 @@ namespace WindowsFormsApp
 
         }
 
-
-        private void kolorComboBox_Validating(object sender, CancelEventArgs e)
-        {
-           /*if ("".Equals(colorUserControl.Kolor))
-               return;
-            e.Cancel = true;
-            detailErrorProvider.SetError(colorUserControl, "Wybierz kolor.");*/
-        }
-        private void kolorComboBox_Validated(object sender, EventArgs e)
-        {
-            //detailErrorProvider.SetError(colorUserControl, "");
-        }
-
         private void typComboBox_Validating(object sender, CancelEventArgs e)
         {
             if (typComboBox.SelectedItem != null)
@@ -104,17 +90,18 @@ namespace WindowsFormsApp
             detailErrorProvider.SetError(typComboBox, "");
         }
 
-        private void wspolrzedneTextBox_Validating(object sender, CancelEventArgs e)
+        /*private void wspolrzedne_Validating(object sender, CancelEventArgs e)
         {
-            if (wspolrzedneTextBox.Text != null)
+            if (wspolrzedneUserControl.Wspolrzedne != null
+                && wspolrzedneUserControl.WspolrzedneValidate())
                 return;
             e.Cancel = true;
-            detailErrorProvider.SetError(wspolrzedneTextBox, "Uzupełnij położenie współrzędnych.");
+            detailErrorProvider.SetError(wspolrzedneUserControl, "Uzupełnij położenie współrzędnych.");
         }
-        private void wspolrzedneTextBox_Validated(object sender, EventArgs e)
+        private void wspolrzedne_Validated(object sender, EventArgs e)
         {
-            detailErrorProvider.SetError(wspolrzedneTextBox, "");
-        }
+            detailErrorProvider.SetError(wspolrzedneUserControl, "");
+        }*/
 
         private void poleTextBox_Validating(object sender, CancelEventArgs e)
         {

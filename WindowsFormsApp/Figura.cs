@@ -8,7 +8,7 @@ namespace WindowsFormsApp
 {
     public class Figura
     {
-        public string Kolor
+        public ColorEnum Kolor
         {
             get;
             set;
@@ -38,7 +38,7 @@ namespace WindowsFormsApp
             set;
         }
 
-        public Figura(string kolor, string typ, double pole, 
+        public Figura(ColorEnum kolor, string typ, double pole, 
             WspolrzedneSrodka wspolrzedne, string etykieta)
         {
             Kolor = kolor;

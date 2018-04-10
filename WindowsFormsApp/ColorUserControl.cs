@@ -52,7 +52,7 @@ namespace WindowsFormsApp
 
         private void ColorUserControl_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button_Click(object sender, EventArgs e)

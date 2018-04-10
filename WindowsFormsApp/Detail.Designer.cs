@@ -39,12 +39,17 @@
             this.kolorLabel = new System.Windows.Forms.Label();
             this.detailTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.typComboBox = new System.Windows.Forms.ComboBox();
-            this.wspolrzedneTextBox = new System.Windows.Forms.TextBox();
             this.poleTextBox = new System.Windows.Forms.TextBox();
             this.etykietaTextBox = new System.Windows.Forms.TextBox();
+            this.wspolrzedneTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.xlabel = new System.Windows.Forms.Label();
+            this.ylabel = new System.Windows.Forms.Label();
+            this.xtextBox = new System.Windows.Forms.TextBox();
+            this.ytextBox = new System.Windows.Forms.TextBox();
             this.colorUserControl = new WindowsFormsApp.ColorUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.detailErrorProvider)).BeginInit();
             this.detailTableLayoutPanel.SuspendLayout();
+            this.wspolrzedneTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // okButton
@@ -120,13 +125,10 @@
             // 
             // detailTableLayoutPanel
             // 
-            this.detailTableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.detailTableLayoutPanel.ColumnCount = 2;
             this.detailTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.23779F));
             this.detailTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.76221F));
             this.detailTableLayoutPanel.Controls.Add(this.typComboBox, 1, 1);
-            this.detailTableLayoutPanel.Controls.Add(this.wspolrzedneTextBox, 1, 2);
             this.detailTableLayoutPanel.Controls.Add(this.poleTextBox, 1, 3);
             this.detailTableLayoutPanel.Controls.Add(this.etykietaTextBox, 1, 4);
             this.detailTableLayoutPanel.Controls.Add(this.kolorLabel, 0, 0);
@@ -135,6 +137,7 @@
             this.detailTableLayoutPanel.Controls.Add(this.poleLabel, 0, 3);
             this.detailTableLayoutPanel.Controls.Add(this.etykietaLabel, 0, 4);
             this.detailTableLayoutPanel.Controls.Add(this.colorUserControl, 1, 0);
+            this.detailTableLayoutPanel.Controls.Add(this.wspolrzedneTableLayoutPanel, 1, 2);
             this.detailTableLayoutPanel.Location = new System.Drawing.Point(1, 12);
             this.detailTableLayoutPanel.Name = "detailTableLayoutPanel";
             this.detailTableLayoutPanel.RowCount = 5;
@@ -159,16 +162,6 @@
             this.typComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.typComboBox_Validating);
             this.typComboBox.Validated += new System.EventHandler(this.typComboBox_Validated);
             // 
-            // wspolrzedneTextBox
-            // 
-            this.wspolrzedneTextBox.Location = new System.Drawing.Point(130, 61);
-            this.wspolrzedneTextBox.Name = "wspolrzedneTextBox";
-            this.wspolrzedneTextBox.Size = new System.Drawing.Size(121, 20);
-            this.wspolrzedneTextBox.TabIndex = 2;
-            this.wspolrzedneTextBox.TextChanged += new System.EventHandler(this.wspolrzedneTextBox_TextChanged);
-            this.wspolrzedneTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.wspolrzedneTextBox_Validating);
-            this.wspolrzedneTextBox.Validated += new System.EventHandler(this.wspolrzedneTextBox_Validated);
-            // 
             // poleTextBox
             // 
             this.poleTextBox.Location = new System.Drawing.Point(130, 90);
@@ -184,6 +177,62 @@
             this.etykietaTextBox.Name = "etykietaTextBox";
             this.etykietaTextBox.Size = new System.Drawing.Size(185, 20);
             this.etykietaTextBox.TabIndex = 4;
+            // 
+            // wspolrzedneTableLayoutPanel
+            // 
+            this.wspolrzedneTableLayoutPanel.ColumnCount = 4;
+            this.wspolrzedneTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.wspolrzedneTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.71429F));
+            this.wspolrzedneTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.wspolrzedneTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.71429F));
+            this.wspolrzedneTableLayoutPanel.Controls.Add(this.xlabel, 0, 0);
+            this.wspolrzedneTableLayoutPanel.Controls.Add(this.ylabel, 2, 0);
+            this.wspolrzedneTableLayoutPanel.Controls.Add(this.xtextBox, 1, 0);
+            this.wspolrzedneTableLayoutPanel.Controls.Add(this.ytextBox, 3, 0);
+            this.wspolrzedneTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wspolrzedneTableLayoutPanel.Location = new System.Drawing.Point(130, 61);
+            this.wspolrzedneTableLayoutPanel.Name = "wspolrzedneTableLayoutPanel";
+            this.wspolrzedneTableLayoutPanel.RowCount = 1;
+            this.wspolrzedneTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.wspolrzedneTableLayoutPanel.Size = new System.Drawing.Size(319, 23);
+            this.wspolrzedneTableLayoutPanel.TabIndex = 11;
+            // 
+            // xlabel
+            // 
+            this.xlabel.AutoSize = true;
+            this.xlabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xlabel.Location = new System.Drawing.Point(3, 0);
+            this.xlabel.Name = "xlabel";
+            this.xlabel.Size = new System.Drawing.Size(39, 23);
+            this.xlabel.TabIndex = 0;
+            this.xlabel.Text = "x:";
+            this.xlabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ylabel
+            // 
+            this.ylabel.AutoSize = true;
+            this.ylabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ylabel.Location = new System.Drawing.Point(161, 0);
+            this.ylabel.Name = "ylabel";
+            this.ylabel.Size = new System.Drawing.Size(39, 23);
+            this.ylabel.TabIndex = 1;
+            this.ylabel.Text = "y:";
+            this.ylabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // xtextBox
+            // 
+            this.xtextBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.xtextBox.Location = new System.Drawing.Point(48, 3);
+            this.xtextBox.Name = "xtextBox";
+            this.xtextBox.Size = new System.Drawing.Size(40, 20);
+            this.xtextBox.TabIndex = 2;
+            // 
+            // ytextBox
+            // 
+            this.ytextBox.Location = new System.Drawing.Point(206, 3);
+            this.ytextBox.Name = "ytextBox";
+            this.ytextBox.Size = new System.Drawing.Size(40, 20);
+            this.ytextBox.TabIndex = 3;
             // 
             // colorUserControl
             // 
@@ -211,6 +260,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.detailErrorProvider)).EndInit();
             this.detailTableLayoutPanel.ResumeLayout(false);
             this.detailTableLayoutPanel.PerformLayout();
+            this.wspolrzedneTableLayoutPanel.ResumeLayout(false);
+            this.wspolrzedneTableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -226,9 +277,13 @@
         private System.Windows.Forms.Label poleLabel;
         private System.Windows.Forms.Label etykietaLabel;
         private System.Windows.Forms.ComboBox typComboBox;
-        private System.Windows.Forms.TextBox wspolrzedneTextBox;
         private System.Windows.Forms.TextBox poleTextBox;
         private System.Windows.Forms.TextBox etykietaTextBox;
         private ColorUserControl colorUserControl;
+        private System.Windows.Forms.TableLayoutPanel wspolrzedneTableLayoutPanel;
+        private System.Windows.Forms.Label xlabel;
+        private System.Windows.Forms.Label ylabel;
+        private System.Windows.Forms.TextBox xtextBox;
+        private System.Windows.Forms.TextBox ytextBox;
     }
 }
