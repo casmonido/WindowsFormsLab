@@ -28,10 +28,8 @@ namespace WindowsFormsApp
         private void copyToControls(ListViewItem listViewItem)
         {
             Figura f = (Figura) listViewItem.Tag;
-            ColorEnum en;
-            Enum.TryParse<ColorEnum>(listViewItem.SubItems[0].Text, out en);
-            colorUserControl.Kolor = en;
-            typComboBox.Text = f.Typ.ToString();
+            colorUserControl.Kolor = f.Kolor;
+            shapeUserControl.Typ = f.Typ;
             xtextBox.Text = f.WspolrzedneSrodka.X.ToString();
             ytextBox.Text = f.WspolrzedneSrodka.Y.ToString();
             poleTextBox.Text = f.Pole.ToString();
@@ -41,9 +39,7 @@ namespace WindowsFormsApp
         private void copyToPublicAttributes()
         {
             this.Kolor = this.colorUserControl.Kolor;
-            ShapeEnum en;
-            Enum.TryParse<ShapeEnum>(this.typComboBox.SelectedItem.ToString(), out en);
-            this.Typ = en;
+            this.Typ = shapeUserControl.Typ;
             this.Wspolrzedne = new WspolrzedneSrodka(this.xtextBox.Text, this.ytextBox.Text);
             this.Pole = this.poleTextBox.Text;
             this.Etykieta = this.etykietaTextBox.Text;
@@ -78,18 +74,6 @@ namespace WindowsFormsApp
         private void wspolrzedneTextBox_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void typComboBox_Validating(object sender, CancelEventArgs e)
-        {
-            if (typComboBox.SelectedItem != null)
-                return;
-            e.Cancel = true;
-            detailErrorProvider.SetError(typComboBox, "Wybierz typ.");
-        }
-        private void typComboBox_Validated(object sender, EventArgs e)
-        {
-            detailErrorProvider.SetError(typComboBox, "");
         }
 
         private void wspolrzednaY_Validating(object sender, CancelEventArgs e)

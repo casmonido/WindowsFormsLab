@@ -38,7 +38,6 @@
             this.typLabel = new System.Windows.Forms.Label();
             this.kolorLabel = new System.Windows.Forms.Label();
             this.detailTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.typComboBox = new System.Windows.Forms.ComboBox();
             this.poleTextBox = new System.Windows.Forms.TextBox();
             this.etykietaTextBox = new System.Windows.Forms.TextBox();
             this.colorUserControl = new WindowsFormsApp.ColorUserControl();
@@ -47,6 +46,7 @@
             this.ylabel = new System.Windows.Forms.Label();
             this.xtextBox = new System.Windows.Forms.TextBox();
             this.ytextBox = new System.Windows.Forms.TextBox();
+            this.shapeUserControl = new WindowsFormsApp.ShapeUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.detailErrorProvider)).BeginInit();
             this.detailTableLayoutPanel.SuspendLayout();
             this.wspolrzedneTableLayoutPanel.SuspendLayout();
@@ -128,7 +128,6 @@
             this.detailTableLayoutPanel.ColumnCount = 2;
             this.detailTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.23779F));
             this.detailTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.76221F));
-            this.detailTableLayoutPanel.Controls.Add(this.typComboBox, 1, 1);
             this.detailTableLayoutPanel.Controls.Add(this.poleTextBox, 1, 3);
             this.detailTableLayoutPanel.Controls.Add(this.etykietaTextBox, 1, 4);
             this.detailTableLayoutPanel.Controls.Add(this.kolorLabel, 0, 0);
@@ -138,6 +137,7 @@
             this.detailTableLayoutPanel.Controls.Add(this.etykietaLabel, 0, 4);
             this.detailTableLayoutPanel.Controls.Add(this.colorUserControl, 1, 0);
             this.detailTableLayoutPanel.Controls.Add(this.wspolrzedneTableLayoutPanel, 1, 2);
+            this.detailTableLayoutPanel.Controls.Add(this.shapeUserControl, 1, 1);
             this.detailTableLayoutPanel.Location = new System.Drawing.Point(1, 12);
             this.detailTableLayoutPanel.Name = "detailTableLayoutPanel";
             this.detailTableLayoutPanel.RowCount = 5;
@@ -148,20 +148,6 @@
             this.detailTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.detailTableLayoutPanel.Size = new System.Drawing.Size(452, 146);
             this.detailTableLayoutPanel.TabIndex = 0;
-            // 
-            // typComboBox
-            // 
-            this.typComboBox.FormattingEnabled = true;
-            this.typComboBox.Items.AddRange(new object[] {
-            "Trójkąt",
-            "Kwadrat",
-            "Koło"});
-            this.typComboBox.Location = new System.Drawing.Point(130, 32);
-            this.typComboBox.Name = "typComboBox";
-            this.typComboBox.Size = new System.Drawing.Size(121, 21);
-            this.typComboBox.TabIndex = 1;
-            this.typComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.typComboBox_Validating);
-            this.typComboBox.Validated += new System.EventHandler(this.typComboBox_Validated);
             // 
             // poleTextBox
             // 
@@ -249,6 +235,14 @@
             this.ytextBox.Validating += new System.ComponentModel.CancelEventHandler(this.wspolrzednaY_Validating);
             this.ytextBox.Validated += new System.EventHandler(this.wspolrzednaY_Validated);
             // 
+            // shapeUserControl
+            // 
+            this.shapeUserControl.CausesValidation = false;
+            this.shapeUserControl.Location = new System.Drawing.Point(130, 32);
+            this.shapeUserControl.Name = "shapeUserControl";
+            this.shapeUserControl.Size = new System.Drawing.Size(116, 23);
+            this.shapeUserControl.TabIndex = 12;
+            // 
             // Detail
             // 
             this.AcceptButton = this.okButton;
@@ -281,7 +275,6 @@
         private System.Windows.Forms.Label wspolrzedneLabel;
         private System.Windows.Forms.Label poleLabel;
         private System.Windows.Forms.Label etykietaLabel;
-        private System.Windows.Forms.ComboBox typComboBox;
         private System.Windows.Forms.TextBox poleTextBox;
         private System.Windows.Forms.TextBox etykietaTextBox;
         private ColorUserControl colorUserControl;
@@ -290,5 +283,6 @@
         private System.Windows.Forms.Label ylabel;
         private System.Windows.Forms.TextBox xtextBox;
         private System.Windows.Forms.TextBox ytextBox;
+        private ShapeUserControl shapeUserControl;
     }
 }

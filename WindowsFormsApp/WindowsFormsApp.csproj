@@ -60,7 +60,14 @@
     </Compile>
     <Compile Include="ColorEnum.cs" />
     <Compile Include="RefreshableForm.cs" />
+    <Compile Include="ShapeChangedEventArgs.cs" />
     <Compile Include="ShapeEnum.cs" />
+    <Compile Include="ShapeUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ShapeUserControl.Designer.cs">
+      <DependentUpon>ShapeUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="WspolrzedneSrodka.cs" />
     <Compile Include="Figura.cs" />
     <Compile Include="Detail.cs">
@@ -106,7 +113,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ShapeUserControl.resx">
+      <DependentUpon>ShapeUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -119,6 +130,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sqare.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="triangle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
