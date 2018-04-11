@@ -12,7 +12,6 @@ namespace WindowsFormsApp
 {
     public partial class Detail : Form
     {
-        private ListViewItem listViewItem;
 
         public ColorEnum Kolor { get; set; }
         public ShapeEnum Typ { get; set; }
@@ -25,9 +24,8 @@ namespace WindowsFormsApp
             InitializeComponent();
         }
 
-        private void copyToControls(ListViewItem listViewItem)
+        private void copyToControls(Figura f)
         {
-            Figura f = (Figura) listViewItem.Tag;
             colorUserControl.Kolor = f.Kolor;
             shapeUserControl.Typ = f.Typ;
             xtextBox.Text = f.WspolrzedneSrodka.X.ToString();
@@ -45,11 +43,10 @@ namespace WindowsFormsApp
             this.Etykieta = this.etykietaTextBox.Text;
         }
 
-        public Detail(ListViewItem listViewItem)
+        public Detail(Figura f)
         {
-            this.listViewItem = listViewItem;
             InitializeComponent();
-            copyToControls(listViewItem);
+            copyToControls(f);
         }
 
         private void Detail_Load(object sender, EventArgs e)
@@ -127,7 +124,12 @@ namespace WindowsFormsApp
         {
             try
             {
-                double.Parse(poleTextBox.Text);
+                double x  = double.Parse(poleTextBox.Text);
+                if (x < 0)
+                {
+                    detailErrorProvider.SetError(poleTextBox, "Kontrolka zawiera nieprawidłowe znaki.");
+                    e.Cancel = true;
+                }
             } catch
             {
                 detailErrorProvider.SetError(poleTextBox, "Kontrolka zawiera nieprawidłowe znaki.");

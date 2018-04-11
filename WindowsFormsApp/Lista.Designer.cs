@@ -30,7 +30,6 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dodajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modyfikujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuńToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
@@ -59,38 +58,32 @@
             this.menuStrip1.Size = new System.Drawing.Size(471, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.Visible = false;
             // 
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.AutoToolTip = true;
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dodajToolStripMenuItem,
             this.modyfikujToolStripMenuItem,
             this.usuńToolStripMenuItem});
+            this.menuToolStripMenuItem.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.ShowShortcutKeys = false;
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
             this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click);
             // 
-            // dodajToolStripMenuItem
-            // 
-            this.dodajToolStripMenuItem.Name = "dodajToolStripMenuItem";
-            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
-            this.dodajToolStripMenuItem.Text = "Dodaj";
-            this.dodajToolStripMenuItem.Click += new System.EventHandler(this.dodajToolStripMenuItem_Click);
-            // 
             // modyfikujToolStripMenuItem
             // 
             this.modyfikujToolStripMenuItem.Name = "modyfikujToolStripMenuItem";
-            this.modyfikujToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.modyfikujToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modyfikujToolStripMenuItem.Text = "Modyfikuj";
             this.modyfikujToolStripMenuItem.Click += new System.EventHandler(this.modyfikujToolStripMenuItem_Click);
             // 
             // usuńToolStripMenuItem
             // 
             this.usuńToolStripMenuItem.Name = "usuńToolStripMenuItem";
-            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuńToolStripMenuItem.Text = "Usuń";
             this.usuńToolStripMenuItem.Click += new System.EventHandler(this.usunToolStripMenuItem_Click);
             // 
@@ -219,7 +212,6 @@
         #endregion
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dodajToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modyfikujToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuńToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip;

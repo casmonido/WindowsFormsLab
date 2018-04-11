@@ -55,9 +55,9 @@ namespace WindowsFormsApp
             {
                 if ((pon100 && d.Pole < 100) ||
                     (pow100 && d.Pole >= 100))
-                    addFigureToList(ref shapeList, d); //hurr
+                    addFigureToList(ref shapeList, d); 
             }
-            emitEvent();
+            emitEventNumOfVisibleElementsChanged();
         }
 
         private void addFigureToList(ref ListView list, Figura d)
@@ -89,20 +89,20 @@ namespace WindowsFormsApp
                     if (f.Tag == d)
                     {// modyfikuj
                         modifyFigureOnList(f, d);
-                        emitEvent();
+                        emitEventNumOfVisibleElementsChanged();
                         return;
                     }
                 //nie znaleziono
                 addFigureToList(ref shapeList, d);
-                emitEvent();
+                emitEventNumOfVisibleElementsChanged();
                 return;
             }
             //else
             refreshDelete(d);
-            emitEvent();
+            emitEventNumOfVisibleElementsChanged();
         }
 
-        private void emitEvent()
+        private void emitEventNumOfVisibleElementsChanged()
         {
             if (ListItemsCount != null)
             {
@@ -115,7 +115,7 @@ namespace WindowsFormsApp
             if ((pon100 && d.Pole < 100) ||
                 (pow100 && d.Pole >= 100))
                 addFigureToList(ref shapeList, d);
-            emitEvent();
+            emitEventNumOfVisibleElementsChanged();
         }
 
         public void refreshDelete(Figura d)
@@ -124,7 +124,7 @@ namespace WindowsFormsApp
             if (f.Tag == d)
             {
                 shapeList.Items.Remove(f);
-                emitEvent();
+                emitEventNumOfVisibleElementsChanged();
                 return;
             }
         }
@@ -137,14 +137,6 @@ namespace WindowsFormsApp
             }
         }
 
-        private void dodajToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Detail d = new Detail();
-            if (d.ShowDialog() == DialogResult.OK)
-                ((MainForm) this.MdiParent).dodajFigure(d.Kolor, d.Typ,
-                    d.Wspolrzedne, d.Pole, d.Etykieta);
-        }
-
         private void menuToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -154,7 +146,7 @@ namespace WindowsFormsApp
         {
             if (shapeList.SelectedItems.Count < 1)
                 return;
-            Detail d = new Detail(shapeList.SelectedItems[0]);
+            Detail d = new Detail((Figura)shapeList.SelectedItems[0].Tag);
             if (d.ShowDialog() == DialogResult.OK)
                 ((MainForm)this.MdiParent).edytujFigure((Figura)shapeList.SelectedItems[0].Tag, 
                     d.Kolor, d.Typ, d.Wspolrzedne, d.Pole, d.Etykieta);

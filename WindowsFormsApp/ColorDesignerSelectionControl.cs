@@ -136,8 +136,10 @@ namespace WindowsFormsApp
                         new ColorDesignerSelectionControl(
                         (ColorEnum)value,
                         editorService);
-                    editorService.DropDownControl(selectionControl);
-                    value = selectionControl.Kolor;
+                    ColorUserControl c = new ColorUserControl();
+                    c.Kolor = (ColorEnum)value;
+                    editorService.DropDownControl(c);
+                    value = c.Kolor;
                 }
                 return value;
             }

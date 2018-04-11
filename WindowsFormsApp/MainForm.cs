@@ -111,20 +111,16 @@ namespace WindowsFormsApp
                 f.refreshInsert(nowa);
         }
 
-        public void edytujFigure(Figura tag, ColorEnum kolor, ShapeEnum typ,
+        public void edytujFigure(Figura f, ColorEnum kolor, ShapeEnum typ,
                     WspolrzedneSrodka wspolrzedne, string pole, string etykieta)
         {
-            foreach (Figura f in listaFigur)
-                if (f == tag)
-                {
-                    f.Kolor = kolor;
-                    f.Typ = typ;
-                    f.WspolrzedneSrodka = wspolrzedne;
-                    f.Pole = double.Parse(pole);
-                    f.Etykieta = etykieta;
-                }
+            f.Kolor = kolor;
+            f.Typ = typ;
+            f.WspolrzedneSrodka = wspolrzedne;
+            f.Pole = double.Parse(pole);
+            f.Etykieta = etykieta;
             foreach (RefreshableForm rf in widoki)
-                rf.refreshModify(tag);
+                rf.refreshModify(f);
         }
 
         public void usunFigure(Figura tag)
@@ -132,6 +128,14 @@ namespace WindowsFormsApp
             listaFigur.Remove(tag);
             foreach (RefreshableForm f in widoki)
                 f.refreshDelete(tag);
+        }
+
+        private void dodajToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Detail d = new Detail();
+            if (d.ShowDialog() == DialogResult.OK)
+                dodajFigure(d.Kolor, d.Typ,
+                    d.Wspolrzedne, d.Pole, d.Etykieta);
         }
 
         private void statusStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

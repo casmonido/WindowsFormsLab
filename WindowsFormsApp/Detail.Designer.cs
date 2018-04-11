@@ -40,12 +40,12 @@
             this.detailTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.poleTextBox = new System.Windows.Forms.TextBox();
             this.etykietaTextBox = new System.Windows.Forms.TextBox();
-            this.colorUserControl = new WindowsFormsApp.ColorUserControl();
             this.wspolrzedneTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.xlabel = new System.Windows.Forms.Label();
             this.ylabel = new System.Windows.Forms.Label();
             this.xtextBox = new System.Windows.Forms.TextBox();
             this.ytextBox = new System.Windows.Forms.TextBox();
+            this.colorUserControl = new WindowsFormsApp.ColorUserControl();
             this.shapeUserControl = new WindowsFormsApp.ShapeUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.detailErrorProvider)).BeginInit();
             this.detailTableLayoutPanel.SuspendLayout();
@@ -165,16 +165,6 @@
             this.etykietaTextBox.Size = new System.Drawing.Size(185, 20);
             this.etykietaTextBox.TabIndex = 4;
             // 
-            // colorUserControl
-            // 
-            this.colorUserControl.CausesValidation = false;
-            this.colorUserControl.Kolor = WindowsFormsApp.ColorEnum.Zielony;
-            this.colorUserControl.Location = new System.Drawing.Point(130, 3);
-            this.colorUserControl.Name = "colorUserControl";
-            this.colorUserControl.Size = new System.Drawing.Size(251, 22);
-            this.colorUserControl.TabIndex = 10;
-            this.colorUserControl.Load += new System.EventHandler(this.colorUserControl_Load);
-            // 
             // wspolrzedneTableLayoutPanel
             // 
             this.wspolrzedneTableLayoutPanel.ColumnCount = 4;
@@ -234,6 +224,16 @@
             this.ytextBox.TabIndex = 3;
             this.ytextBox.Validating += new System.ComponentModel.CancelEventHandler(this.wspolrzednaY_Validating);
             this.ytextBox.Validated += new System.EventHandler(this.wspolrzednaY_Validated);
+            // 
+            // colorUserControl
+            // 
+            this.colorUserControl.CausesValidation = false;
+            this.colorUserControl.Kolor = WindowsFormsApp.ColorEnum.Niebieski;
+            this.colorUserControl.Location = new System.Drawing.Point(130, 3);
+            this.colorUserControl.Name = "colorUserControl";
+            this.colorUserControl.Size = new System.Drawing.Size(251, 22);
+            this.colorUserControl.TabIndex = 10;
+            this.colorUserControl.Load += new System.EventHandler(this.colorUserControl_Load);
             // 
             // shapeUserControl
             // 
