@@ -33,8 +33,11 @@
             this.otwórzListęToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonDodajFigury = new System.Windows.Forms.ToolStripButton();
             this.mainMenuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainMenuStrip
@@ -61,7 +64,7 @@
             // otwórzListęToolStripMenuItem
             // 
             this.otwórzListęToolStripMenuItem.Name = "otwórzListęToolStripMenuItem";
-            this.otwórzListęToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.otwórzListęToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.otwórzListęToolStripMenuItem.Text = "Otwórz listę";
             this.otwórzListęToolStripMenuItem.Click += new System.EventHandler(this.otworzListeToolStripMenuItem_Click);
             // 
@@ -80,11 +83,32 @@
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(0, 17);
             // 
+            // toolStrip
+            // 
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonDodajFigury});
+            this.toolStrip.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip.TabIndex = 5;
+            this.toolStrip.Text = "toolStrip1";
+            // 
+            // toolStripButtonDodajFigury
+            // 
+            this.toolStripButtonDodajFigury.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonDodajFigury.Image = global::WindowsFormsApp.Properties.Resources.plus;
+            this.toolStripButtonDodajFigury.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDodajFigury.Name = "toolStripButtonDodajFigury";
+            this.toolStripButtonDodajFigury.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonDodajFigury.Text = "Dodaj figury";
+            this.toolStripButtonDodajFigury.Click += new System.EventHandler(this.toolStripButtonDodajFigury_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.mainMenuStrip);
             this.IsMdiContainer = true;
@@ -96,6 +120,8 @@
             this.mainMenuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,6 +134,8 @@
         private System.Windows.Forms.ToolStripMenuItem otwórzListęToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
+        private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStripButton toolStripButtonDodajFigury;
     }
 }
 

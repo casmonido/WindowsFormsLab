@@ -144,6 +144,7 @@
             this.shapeList.TabIndex = 4;
             this.shapeList.UseCompatibleStateImageBehavior = false;
             this.shapeList.View = System.Windows.Forms.View.Details;
+            this.shapeList.SelectedIndexChanged += new System.EventHandler(this.shapeList_SelectedIndexChanged);
             // 
             // Kolor
             // 

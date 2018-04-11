@@ -131,7 +131,10 @@ namespace WindowsFormsApp
 
         private void shapeList_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (shapeList.SelectedItems != null && shapeList.SelectedItems.Count == 1)
+            {
+                //można modyfikować?
+            }
         }
 
         private void dodajToolStripMenuItem_Click(object sender, EventArgs e)
@@ -221,5 +224,7 @@ namespace WindowsFormsApp
         {
 
         }
+
+
     }
 }

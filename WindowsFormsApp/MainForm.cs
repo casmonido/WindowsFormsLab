@@ -138,5 +138,16 @@ namespace WindowsFormsApp
         {
 
         }
+
+        private void toolStripButtonDodajFigury_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < 20; i++)
+            {
+                dodajFigure((ColorEnum)rnd.Next(3), (ShapeEnum)rnd.Next(3),
+                    new WspolrzedneSrodka(rnd.Next(500), rnd.Next(500)),
+                    rnd.Next(200).ToString(), "Lososwane");
+            }
+        }
     }
 }
